@@ -1,5 +1,6 @@
-*
+.main_bloc
 {
-	margin: 0px;
-	padding: 0px;
+	width: 2048px;
+	height: 1536px;
+	border: 5px solid black;
 }
