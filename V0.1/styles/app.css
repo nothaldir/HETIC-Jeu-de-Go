@@ -1,6 +1,55 @@
+@font-face {
+    font-family: 'levibrushregular';
+    src: url('levibrush-webfont.eot');
+    src: url('levibrush-webfont.eot?#iefix') format('embedded-opentype'),
+         url('levibrush-webfont.woff2') format('woff2'),
+         url('levibrush-webfont.woff') format('woff'),
+         url('levibrush-webfont.ttf') format('truetype'),
+         url('levibrush-webfont.svg#levibrushregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .main_bloc
 {
 	width: 2048px;
 	height: 1536px;
-	border: 5px solid black;
+	background-color: #101421;
 }
+
+#logo
+{
+	display: block;
+	width: 30%;
+	margin: auto;
+}
+
+#goban
+{
+	width: 	1200px;
+	height: 1200px;
+	border: 20px solid white;
+	margin: auto;
+	margin-top: 50px;
+}
+
+table
+{
+	height: 100%;
+	width: 100%;
+}
+
+td
+{
+	border: 5px solid grey;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+}
+
+td img
+{
+	width: 60%;
+	margin: auto;
+}
+
