@@ -1,15 +1,3 @@
-@font-face {
-    font-family: 'levibrushregular';
-    src: url('levibrush-webfont.eot');
-    src: url('levibrush-webfont.eot?#iefix') format('embedded-opentype'),
-         url('levibrush-webfont.woff2') format('woff2'),
-         url('levibrush-webfont.woff') format('woff'),
-         url('levibrush-webfont.ttf') format('truetype'),
-         url('levibrush-webfont.svg#levibrushregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .main_bloc
 {
 	width: 2048px;
@@ -24,32 +12,58 @@
 	margin: auto;
 }
 
-#goban
+#goban_back
 {
 	width: 	1200px;
 	height: 1200px;
-	border: 20px solid white;
 	margin: auto;
 	margin-top: 50px;
 }
 
-table
+#goban_front
 {
-	height: 100%;
+	width: 	1350px;
+	height: 1350px;
+	margin: auto;
+	top: -1275px;
+	position: relative;	
+}
+
+.back
+{
+	width: 146px;
+	height: 146px;
+	border: 2px solid white;
+	float: left;
+}
+
+.front
+{
+	width: 146px;
+	height: 146px;
+	float: left;
+	cursor: pointer;
+	border: 2px solid yellow;
+}
+
+.test img
+{
+	width: 100%;
+	position: relative;
+	top: -75px;
+	left: -75px;
+}
+
+.pink, .blue
+{
 	width: 100%;
 }
 
-td
+.mon_cercle
 {
-	border: 5px solid grey;
-	cursor: pointer;
-	width: 50px;
-	height: 50px;
-}
-
-td img
-{
-	width: 60%;
+	width: 80%;
+	height: 80%;
 	margin: auto;
+	border-radius: 50%;
+	background-color: #D82EA4;
 }
-
