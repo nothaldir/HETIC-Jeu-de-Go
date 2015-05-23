@@ -38,10 +38,16 @@ for (var i = boardSize; i > 0; i--)
 boardSize=9*9;
 var cells = document.getElementById('goban_front');
 
+
 //Creating the intersections
 for (var i = boardSize; i > 0; i--) 
 {
-    cells.innerHTML = cells.innerHTML + "<div class='front' id='"+row+"_"+column+"' onclick='test1("+row+"_"+column+")'> </div>";
+	var identify1="<div class='front' id='";
+    var identify2="_";
+    var identify3="' onClick='test1('";
+    var identify4="')'> </div>";
+	console.log(identify1+row+identify2+column+identify3+row+identify2+column+identify4);
+    cells.innerHTML = cells.innerHTML + identify1+row+identify2+column+identify3+row+identify2+column+identify4;
   	column++;
   	if (column==9) 
   	{
