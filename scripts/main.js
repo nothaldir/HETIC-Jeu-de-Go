@@ -1,15 +1,4 @@
-/* function pion_bleue()
-{
-	document.getElementById("bleue").innerHTML="<img src='images/pion_bleue.png' alt='bleue'>"
-}
-
-function pion_rose()
-{
-	document.getElementById("rose").innerHTML="<img src='images/pion_rose.png' alt='rose'>"
-}
-*/
 /*
-
 construction du jeu
 1. développer le goban
 	tableau avec classe pour chaque TD (déconseillé fortement)
@@ -19,61 +8,67 @@ construction du jeu
 3. générer plateau en JS pour modif easy plus tard
 4. créer un fichier js avec toutes les variables
 5. à qui le tour et pion adéquat (variable pour joueur en cours)
-6. repérer si partie finie, groupe mangé etc...	
+6. regarder les disponibilités autour et en choisir une au hasard 
+7. repérer si partie finie, groupe mangé etc...	
 
 Récursivité : fonction qui s apelle elle même
 on code actuellement en itératif (suite d instructions)
-
-1. regarder les disponibilités autour et en choisir une au hasard 
 */
+
+
+//Creating the goban with JS ==>
+	
+//If you wish to change the bogan size, change 9 by 13 or 19
 var boardSize=9-1;
+//Calculating the number of blocks (and divs) for a 9x9 goban
 boardSize=boardSize*boardSize;
-console.log(boardSize);
+//The cell variable will create the goban in HTML
 var cells = document.getElementById('goban_back');
 
-var x = 0;
-var y = 0;
+var row = 0;
+var column = 0;
 
+//Creating the goban blocks
 for (var i = boardSize; i > 0; i--) 
 {
     cells.innerHTML = cells.innerHTML + "<div class='back'> </div>";        
 };
 
-console.log(boardSize);
+//Calculating the number of intersections to place the pons 
 boardSize=9*9;
-console.log(boardSize);
 var cells = document.getElementById('goban_front');
 
-
+//Creating the intersections
 for (var i = boardSize; i > 0; i--) 
 {
-    cells.innerHTML = cells.innerHTML + "<div class='front' id='"+x+"_"+y+"'onClick='pion()'> </div>";
-  	y++;
-  	if (y==9) 
+    cells.innerHTML = cells.innerHTML + "<div class='front' id='"+row+"_"+column+"' onclick='test1("+row+"_"+column+")'> </div>";
+  	column++;
+  	if (column==9) 
   	{
-  		y=0;
-  		x++;
+  		column=0;
+  		row++;
   	};         
 };
 
+//Functions to identify the intersections, add pons etc.
 
 var player = 1;
 
-function pion(x, y)
+function test1(id) {
+    var x_y = id.indexOf('_');
+    console.log("l index of de xy est : "+x_y);
+}
+
+function update()
 {
-	var id = x.id;
-	console.log('area element id = ' + id);	
-	
-	if (player==1) 
-	{	
-		document.getElementById("0_0").innerHTML="<img src='images/blue.png' alt='blue' class='pink'>";
-		player=2;
-	}
-	else if (player==2)
+	if (player==1)
 	{
-		document.getElementById('0_1').innerHTML="<div class='mon_cercle'></div>";
-		//document.getElementById('0_1').innerHTML="<img src='images/pink.png' alt='pink' class='pink'>";
-		player=1;
+		var element = document.getElementById(i + "_" + j);
+        element.createElement("div").setAttribute("class", "player1");	
 	}
-	;	
+	else if(player==2)
+	{
+		var element = document.getElementById(i + "_" + j);
+        element.createElement("div").setAttribute("class", "player2");	
+	};
 }
