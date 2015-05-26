@@ -42,12 +42,7 @@ var cells = document.getElementById('goban_front');
 //Creating the intersections
 for (var i = boardSize; i > 0; i--) 
 {
-	var identify1="<div class='front' id='";
-    var identify2="_";
-    var identify3="' onClick='test1('";
-    var identify4="')'> </div>";
-	console.log(identify1+row+identify2+column+identify3+row+identify2+column+identify4);
-    cells.innerHTML = cells.innerHTML + identify1+row+identify2+column+identify3+row+identify2+column+identify4;
+    cells.innerHTML = cells.innerHTML + "<div class='front' id='"+row+"_"+column+"' onClick=\"test1('"+row+"_"+column+"')\"> </div>";
   	column++;
   	if (column==9) 
   	{
@@ -61,8 +56,11 @@ for (var i = boardSize; i > 0; i--)
 var player = 1;
 
 function test1(id) {
-    var x_y = id.indexOf('_');
-    console.log("l index of de xy est : "+x_y);
+    var x_y = id.indexOf("_");
+    var x = parseInt(id.substring(0, x_y));
+    console.log("x="+x);
+    var y = parseInt(id.substring(x_y + 1));
+    console.log("y="+y);
 }
 
 function update()
