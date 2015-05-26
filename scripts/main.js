@@ -28,17 +28,6 @@ var cells = document.getElementById('goban_back');
 var row = 0;
 var column = 0;
 
-var tab=new Array; // Tableau multidimensionnel pour stocker valeurs de chaque case (P1 = 1, P2 = 2, empty = 0)
-
-for(var x=0; x<9; x++)
-   tab[x] = new Array();
-
-for(var x=0; x<9; x++)
-   // ... et dans chaque ligne, on parcourt les cellules
-   for(var y=0; y<9; y++)
-      tab[x][y] = 0;
-
-
 //Creating the goban blocks
 for (var i = boardSize; i > 0; i--) 
 {
