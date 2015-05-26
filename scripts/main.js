@@ -80,23 +80,22 @@ function basic(id) {
     var y = parseInt(id.substring(x_y + 1));
     console.log("y="+y);
 	
-	tab[x][y] = player;
-	console.log(tab);
-
-	if (player==1)
+	if (player==1 && tab[x][y]==0)
 	{
-		var element = document.getElementById(x+"_"+y);
-		element.innerHTML="<div class='player1'> </div>";
-		player=2;
-		round++;	
-		console.log("C'est le tour n°"+round);
+			var element = document.getElementById(x+"_"+y);
+			element.innerHTML="<div class='player1'> </div>";
+			player=2;
+			round++;	
+			console.log("C'est le tour n°"+round);
+			tab[x][y] = player;		
 	}
-	else if(player==2)
+	else if(player==2 && tab[x][y]==0)
 	{
-		var element = document.getElementById(x+"_"+y);
-		element.innerHTML="<div class='player2'> </div>";        
-		player=1;
-		console.log("C'est le tour n°"+round);
+			var element = document.getElementById(x+"_"+y);
+			element.innerHTML="<div class='player2'> </div>";        
+			player=1;
+			console.log("C'est le tour n°"+round);
+			tab[x][y] = player;			
 	};
 }
 
