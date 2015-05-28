@@ -29,7 +29,7 @@ var row = 0;
 var column = 0;
 
 //Creating the goban blocks
-for (var i = boardSize; i > 0; i--) 
+for (var x = boardSize; x > 0; x--) 
 {
     cells.innerHTML = cells.innerHTML + "<div class='back'> </div>";        
 };
@@ -40,7 +40,7 @@ var cells = document.getElementById('goban_front');
 
 
 //Creating the intersections
-for (var i = boardSize; i > 0; i--) 
+for (var x = boardSize; x > 0; x--) 
 {
     cells.innerHTML = cells.innerHTML + "<div class='front' id='"+row+"_"+column+"' onClick=\"basic('"+row+"_"+column+"')\"> </div>";
   	column++;
@@ -62,23 +62,23 @@ var round = 0;
 var tab = new Array();
 
 // on cree les lignes (tableau vert) les unes après les autres
-for(var i=0; i<9; i++)
-   tab[i] = new Array();	
+for(var x=0; x<9; x++)
+   tab[x] = new Array();	
 
 // on parcourt les lignes...
-for(var i=0; i<9; i++)
+for(var x=0; x<9; x++)
    // ... et dans chaque ligne, on parcourt les cellules
-   for(var j=0; j<9; j++)
-      tab[i][j] = 0;
+   for(var y=0; y<9; y++)
+      tab[x][y] = 0;
 
 console.log(tab);
 
 function basic(id) {
     var x_y = id.indexOf("_");
     var x = parseInt(id.substring(0, x_y));
-    console.log("x="+x);
+    //console.log("x="+x);
     var y = parseInt(id.substring(x_y + 1));
-    console.log("y="+y);
+    //console.log("y="+y);
 	
 	if (player==1 && tab[x][y]==0)
 	{
@@ -86,7 +86,7 @@ function basic(id) {
 			element.innerHTML="<div class='player1'> </div>";
 			player=2;
 			round++;	
-			console.log("C'est le tour n°"+round);
+			//console.log("C'est le tour n°"+round);
 			tab[x][y] = player;		
 	}
 	else if(player==2 && tab[x][y]==0)
@@ -94,26 +94,30 @@ function basic(id) {
 			var element = document.getElementById(x+"_"+y);
 			element.innerHTML="<div class='player2'> </div>";        
 			player=1;
-			console.log("C'est le tour n°"+round);
+			//console.log("C'est le tour n°"+round);
 			tab[x][y] = player;			
 	};
+	miam();
 }
 
 // Function miam
 
 function miam() {
-    for (var x = 0; x < rows; x++) {
-        for (var y = 0; y < rows; y++) {
+    for (var x = 0; x < row; x++) {
+        for (var y = 0; y < row; y++) {
 			if (tab[x][y]==1 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2) {
 				tab[x][y]=0;
+				console.log(tab[x][y]);
+				document.getElementById(x+"_"+y).innerHTML=" ";
 			}
 			else if (tab[x][y]==2 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1) {
 				tab[x][y]=0;
+				console.log(tab[x][y]);
+				document.getElementById(x+"_"+y).innerHTML=" ";
 			}
 		}	
 	}
 };
-
 // Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
 
 function suicide() {
