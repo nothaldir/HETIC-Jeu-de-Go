@@ -82,38 +82,43 @@ function basic(id) {
 	
 	if (player==1 && tab[x][y]==0)
 	{
-			var element = document.getElementById(x+"_"+y);
-			element.innerHTML="<div class='player1'> </div>";
-			player=2;
-			round++;	
-			console.log("C'est le tour n°"+round);
-			tab[x][y] = player;		
+		var element = document.getElementById(x+"_"+y);
+		element.innerHTML="<div class='player1'> </div>";
+		round++;	
+		console.log("C'est le tour n°"+round);
+		tab[x][y] = player;	
+		player=2;			
 	}
 	else if(player==2 && tab[x][y]==0)
 	{
-			var element = document.getElementById(x+"_"+y);
-			element.innerHTML="<div class='player2'> </div>";        
-			player=1;
-			console.log("C'est le tour n°"+round);
-			tab[x][y] = player;			
+		var element = document.getElementById(x+"_"+y);
+		element.innerHTML="<div class='player2'> </div>";        
+		console.log("C'est le tour n°"+round);
+		tab[x][y] = player;
+		player=1;					
 	};
+
+	miam();
 }
 
 // Function miam
 
 function miam() {
-    for (var x = 0; x < rows; x++) {
-        for (var y = 0; y < rows; y++) {
+    for (var x = 0; x < row; x++) {
+        for (var y = 0; y < row; y++) {
 			if (tab[x][y]==1 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2) {
 				tab[x][y]=0;
+				console.log("le pion"+y+"_"+y+"fut miam");
+				document.getElementById(x+"_"+y).innerHTML=" ";
 			}
 			else if (tab[x][y]==2 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1) {
 				tab[x][y]=0;
+				console.log("le pion"+y+"_"+y+"fut miam");
+				document.getElementById(x+"_"+y).innerHTML=" ";
 			}
 		}	
 	}
 };
-
 // Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
 
 function suicide() {
