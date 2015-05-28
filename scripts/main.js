@@ -29,7 +29,7 @@ var row = 0;
 var column = 0;
 
 //Creating the goban blocks
-for (var x = boardSize; x > 0; x--) 
+for (var i = boardSize; i > 0; i--) 
 {
     cells.innerHTML = cells.innerHTML + "<div class='back'> </div>";        
 };
@@ -40,7 +40,7 @@ var cells = document.getElementById('goban_front');
 
 
 //Creating the intersections
-for (var x = boardSize; x > 0; x--) 
+for (var i = boardSize; i > 0; i--) 
 {
     cells.innerHTML = cells.innerHTML + "<div class='front' id='"+row+"_"+column+"' onClick=\"basic('"+row+"_"+column+"')\"> </div>";
   	column++;
@@ -60,11 +60,9 @@ var round = 0;
 
 // on cree le tableau bleu, contenant les lignes
 var tab = new Array();
-
 // on cree les lignes (tableau vert) les unes après les autres
 for(var x=0; x<9; x++)
    tab[x] = new Array();	
-
 // on parcourt les lignes...
 for(var x=0; x<9; x++)
    // ... et dans chaque ligne, on parcourt les cellules
@@ -72,6 +70,7 @@ for(var x=0; x<9; x++)
       tab[x][y] = 0;
 
 console.log(tab);
+
 
 function basic(id) {
     var x_y = id.indexOf("_");
@@ -85,7 +84,7 @@ function basic(id) {
 		var element = document.getElementById(x+"_"+y);
 		element.innerHTML="<div class='player1'> </div>";
 		round++;	
-		console.log("C'est le tour n°"+round);
+		//console.log("C'est le tour n°"+round);
 		tab[x][y] = player;	
 		player=2;			
 	}
@@ -93,7 +92,7 @@ function basic(id) {
 	{
 		var element = document.getElementById(x+"_"+y);
 		element.innerHTML="<div class='player2'> </div>";        
-		console.log("C'est le tour n°"+round);
+		//console.log("C'est le tour n°"+round);
 		tab[x][y] = player;
 		player=1;					
 	};
