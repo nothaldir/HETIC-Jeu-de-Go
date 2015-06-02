@@ -57,6 +57,10 @@ var player = 1;
 
 var round = 0;
 
+var pointJ1 = 0;
+var pointJ2 = 0;
+
+var suicide = false;
 
 // on cree le tableau bleu, contenant les lignes
 var tab = new Array();
@@ -71,30 +75,31 @@ for(var x=0; x<9; x++)
 
 console.log(tab);
 
-
 function basic(id) {
     var x_y = id.indexOf("_");
     var x = parseInt(id.substring(0, x_y));
     //console.log("x="+x);
     var y = parseInt(id.substring(x_y + 1));
     //console.log("y="+y);
+
+    suicide2();
 	
-	if (player==1 && tab[x][y]==0)
+	if (player==1 && tab[x][y]==0 && suicide==false)
 	{
 		var element = document.getElementById(x+"_"+y);
 		element.innerHTML="<div class='player1'> </div>";
 		round++;	
 		//console.log("C'est le tour n°"+round);
 		tab[x][y] = player;	
-		player=2;			
+		player=2;	
 	}
-	else if(player==2 && tab[x][y]==0)
+	else if(player==2 && tab[x][y]==0 && suicide==false)
 	{
 		var element = document.getElementById(x+"_"+y);
 		element.innerHTML="<div class='player2'> </div>";        
 		//console.log("C'est le tour n°"+round);
 		tab[x][y] = player;
-		player=1;					
+		player=1;
 	};
 
 	miam();
@@ -107,19 +112,23 @@ function miam() {
         for (var y = 0; y < row; y++) {
 			if (tab[x][y]==1 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2) {
 				tab[x][y]=0;
-				console.log("le pion"+y+"_"+y+"fut miam");
+				console.log("le pion "+x+"_"+y+" fut miam");
 				document.getElementById(x+"_"+y).innerHTML=" ";
+				pointJ1++;
+				console.log("J1, nombre de points = "+pointJ1);
 			}
 			else if (tab[x][y]==2 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1) {
 				tab[x][y]=0;
-				console.log("le pion"+y+"_"+y+"fut miam");
+				console.log("le pion "+x+"_"+y+" fut miam");
 				document.getElementById(x+"_"+y).innerHTML=" ";
+				pointJ2++;
+				console.log("J2, nombre de points = "+pointJ2);
 			}
 		}	
 	}
 };
-// Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
 
+// Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
 function suicide() {
 	if (tab[x][y]==0 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1) {
 		if (tab[x-1][y-1]==2 && tab[x-2][y]==2 && tab[x-2][y+1]==2) { // possibilité 1
@@ -140,6 +149,15 @@ function suicide() {
 	else if (tab[x][y]==0 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2) {
 		alert("t'es con ou quoi?");
 	}
+};
+
+function suicide2() {
+	if (tab[x][y]==0 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1)
+	{
+		suicide=true;
+	}
+	else if (tab[x][y]==0 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2)
+	{
+		suicde=true;
+	}
 }
-
-
