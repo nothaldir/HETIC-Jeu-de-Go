@@ -13,6 +13,9 @@ construction du jeu
 
 Récursivité : fonction qui s apelle elle même
 on code actuellement en itératif (suite d instructions)
+
+A RETENIR : VARIABLES LOCALES ET GLOBALES (avec ou sans var) !!!
+
 */
 
 
@@ -32,7 +35,7 @@ var column = 0;
 for (var i = boardSize; i > 0; i--) 
 {
     cells.innerHTML = cells.innerHTML + "<div class='back'> </div>";        
-};
+}
 
 //Calculating the number of intersections to place the powns 
 boardSize=9*9;
@@ -48,8 +51,8 @@ for (var i = boardSize; i > 0; i--)
   	{
   		column=0;
   		row++;
-  	};         
-};
+  	}        
+}
 
 //Functions to identify the intersections, add powns etc.
 
@@ -77,9 +80,9 @@ console.log(tab);
 
 function basic(id) {
     var x_y = id.indexOf("_");
-    var x = parseInt(id.substring(0, x_y));
+    x = parseInt(id.substring(0, x_y));
     //console.log("x="+x);
-    var y = parseInt(id.substring(x_y + 1));
+    y = parseInt(id.substring(x_y + 1));
     //console.log("y="+y);
 
     suicide2();
@@ -91,7 +94,7 @@ function basic(id) {
 		round++;	
 		//console.log("C'est le tour n°"+round);
 		tab[x][y] = player;	
-		player=2;	
+		player=2;
 	}
 	else if(player==2 && tab[x][y]==0 && suicide==false)
 	{
@@ -100,7 +103,7 @@ function basic(id) {
 		//console.log("C'est le tour n°"+round);
 		tab[x][y] = player;
 		player=1;
-	};
+	}
 
 	miam();
 }
@@ -126,38 +129,45 @@ function miam() {
 			}
 		}	
 	}
-};
+}
 
 // Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
-function suicide() {
+function suicideTest() {
 	if (tab[x][y]==0 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1) {
 		if (tab[x-1][y-1]==2 && tab[x-2][y]==2 && tab[x-2][y+1]==2) { // possibilité 1
 			// tu ne peux pas peux jouer si au tour d'avant, P1 a bouffé ton pion
 			// sinon tu peux jouer
+			suicide = false;
 		}
 		else if (tab[x][y-2]==2 && tab[x-1][y-1]==2 && tab[x+1][y-1]==2) { // possibilité 2
 			// idem
+			suicide = false;
 		}
 		else if (tab[x][y+2]==2 && tab[x-1][y+1]==2 && tab[x+1][y+1]==2) { // possibilité 3
 			// idem
+			suicide = false;
 		}
 		else if (tab[x+1][y-1]==2 && tab[x+2][y]==2 && tab[x+1][y+1]==2) { // possibilité 4
 			// idem
+			suicide = false;
 		}
-		alert("t'es con ou quoi?");
+		//alert("t'es con ou quoi?");
 	}
 	else if (tab[x][y]==0 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2) {
 		alert("t'es con ou quoi?");
 	}
-};
+}
 
 function suicide2() {
 	if (tab[x][y]==0 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1)
 	{
 		suicide=true;
+		console.log(suicide);
 	}
 	else if (tab[x][y]==0 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2)
 	{
 		suicde=true;
+		console.log(suicide);
 	}
 }
+
