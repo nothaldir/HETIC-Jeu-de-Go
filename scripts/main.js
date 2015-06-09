@@ -77,6 +77,17 @@ for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       tab[x][y] = 0;
 
+// Tableau qui stock les tours
+var rounds = new Array();
+for(var x=0; x<9; x++)
+   rounds[x] = new Array();	
+for(var x=0; x<9; x++)
+   for(var y=0; y<9; y++)
+      rounds[x][y] = 0;
+console.log("Tableau tours");
+console.log(rounds);
+
+
 console.log(tab);
 
 function basic(id) {
@@ -88,22 +99,23 @@ function basic(id) {
 
     suicideCheck();
 	
-	if (player==1 && tab[x][y]==0 && suicide==false)
+	if (player==1 && tab[x][y]==0 && suicide==false && rounds[x][y]!=round-2)
 	{
 		var element = document.getElementById(x+"_"+y);
 		element.innerHTML="<div class='player1'> </div>";
 		round++;	
-		//console.log("C'est le tour n°"+round);
 		tab[x][y] = player;	
+		rounds[x][y] = round;		
 		player=2;
 		console.log("basic works");
 	}
 	else if(player==2 && tab[x][y]==0 && suicide==false)
 	{
 		var element = document.getElementById(x+"_"+y);
-		element.innerHTML="<div class='player2'> </div>";        
-		//console.log("C'est le tour n°"+round);
+		element.innerHTML="<div class='player2'> </div>";
+		round++;        
 		tab[x][y] = player;
+		rounds[x][y] = round;
 		player=1;
 		console.log("basic works");
 	}
