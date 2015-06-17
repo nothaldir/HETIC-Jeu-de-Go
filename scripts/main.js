@@ -83,7 +83,7 @@ for(var x=0; x<9; x++)
    rounds[x] = new Array();	
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
-      rounds[x][y] = 0;
+      rounds[x][y] = null;
 console.log("Tableau tours");
 console.log(rounds);
 
