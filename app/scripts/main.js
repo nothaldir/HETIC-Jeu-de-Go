@@ -8,8 +8,8 @@ construction du jeu
 3. générer plateau en JS pour modif easy plus tard
 4. créer un fichier js avec toutes les variables
 5. à qui le tour et pion adéquat (variable pour joueur en cours)
-6. regarder les disponibilités autour et en choisir une au hasard 
-7. repérer si partie finie, groupe mangé etc...	
+6. regarder les disponibilités autour et en choisir une au hasard
+7. repérer si partie finie, groupe mangé etc...
 
 Récursivité : fonction qui s apelle elle même
 on code actuellement en itératif (suite d instructions)
@@ -20,7 +20,7 @@ A RETENIR : VARIABLES LOCALES ET GLOBALES (avec ou sans var) !!!
 
 
 //Creating the goban with JS ==>
-	
+
 //If you wish to change the goban size, change 9 by 13 or 19
 var boardSize=9-1;
 //Calculating the number of blocks (and divs) for a 9x9 goban
@@ -32,21 +32,21 @@ var row = 0;
 var column = 0;
 
 
-//Calculating the number of intersections to place the powns 
+//Calculating the number of intersections to place the powns
 boardSize=9*9;
 var cells = document.getElementById('goban_front');
 
 
 //Creating the intersections
-for (var i = boardSize; i > 0; i--) 
+for (var i = boardSize; i > 0; i--)
 {
     cells.innerHTML = cells.innerHTML + "<div class='front' id='"+row+"_"+column+"' onClick=\"basic('"+row+"_"+column+"')\"> </div>";
   	column++;
-  	if (column==9) 
+  	if (column==9)
   	{
   		column=0;
   		row++;
-  	}        
+  	}
 }
 
 //Functions to identify the intersections, add powns etc.
@@ -65,7 +65,7 @@ var suicide = false;
 var tab = new Array();
 // on cree les lignes (tableau vert) les unes après les autres
 for(var x=0; x<9; x++)
-   tab[x] = new Array();	
+   tab[x] = new Array();
 // on parcourt les lignes...
 for(var x=0; x<9; x++)
    // ... et dans chaque ligne, on parcourt les cellules
@@ -79,7 +79,7 @@ console.log(tab);
 //Tableau groupes
 var tabM = new Array();
 for(var x=0; x<9; x++)
-   tabM[x] = new Array();	
+   tabM[x] = new Array();
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       tabM[x][y] = 0;
@@ -90,7 +90,7 @@ console.log(tabM);
 // Tableau qui stock les tours
 var rounds = new Array();
 for(var x=0; x<9; x++)
-   rounds[x] = new Array();	
+   rounds[x] = new Array();
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       rounds[x][y] = null;
@@ -105,15 +105,15 @@ function basic(id) {
     y = parseInt(id.substring(x_y + 1));
     console.log("y="+y);
 
-    suicideCheck();
-	
+    // suicideCheck();
+
 	if (player==1 && tab[x][y]==0 && suicide==false && rounds[x][y]!=round-2)
 	{
 		var element = document.getElementById(x+"_"+y);
 		element.innerHTML="<div class='player1'> </div>";
-		round++;	
-		tab[x][y] = player;	
-		rounds[x][y] = round;		
+		round++;
+		tab[x][y] = player;
+		rounds[x][y] = round;
 		player=2;
 		console.log("basic works");
 	}
@@ -121,7 +121,7 @@ function basic(id) {
 	{
 		var element = document.getElementById(x+"_"+y);
 		element.innerHTML="<div class='player2'> </div>";
-		round++;        
+		round++;
 		tab[x][y] = player;
 		rounds[x][y] = round;
 		player=1;
@@ -151,14 +151,14 @@ function miam() {
 				pointJ2++;
 				console.log("J2, nombre de points = "+pointJ2);
 			}
-		}	
+		}
 	}
 }
 
 // Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
 function suicideCheck() {
 	if (tab[x][y]==0 && tab[x-1][y]==1 && tab[x][y-1]==1 && tab[x][y+1]==1 && tab[x+1][y]==1) {
-		if (tab[x-1][y-1]==2 && tab[x-2][y]==2 && tab[x-1][y+1]==2) { 
+		if (tab[x-1][y-1]==2 && tab[x-2][y]==2 && tab[x-1][y+1]==2) {
 			// possibilité 1
 			// tu ne peux pas peux jouer si au tour d'avant, P1 a bouffé ton pion
 			// sinon tu peux jouer
@@ -187,7 +187,7 @@ function suicideCheck() {
 		}
 	}
 	else if (tab[x][y]==0 && tab[x-1][y]==2 && tab[x][y-1]==2 && tab[x][y+1]==2 && tab[x+1][y]==2) {
-		if (tab[x-1][y-1]==1 && tab[x-2][y]==1 && tab[x-1][y+1]==1) { 
+		if (tab[x-1][y-1]==1 && tab[x-2][y]==1 && tab[x-1][y+1]==1) {
 			// possibilité 1
 			// tu ne peux pas peux jouer si au tour d'avant, P1 a bouffé ton pion
 			// sinon tu peux jouer
@@ -284,6 +284,6 @@ function detectGroup() {
                 }
             }
         }
-    } 
+    }
 }
 */
