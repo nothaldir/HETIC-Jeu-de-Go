@@ -31,11 +31,6 @@ var cells = document.getElementById('goban_back');
 var row = 0;
 var column = 0;
 
-//Creating the goban blocks
-for (var i = boardSize; i > 0; i--) 
-{
-    cells.innerHTML = cells.innerHTML + "<div class='back'> </div>";        
-}
 
 //Calculating the number of intersections to place the powns 
 boardSize=9*9;
