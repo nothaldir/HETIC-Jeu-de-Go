@@ -1,0 +1,40 @@
+body{
+    background-color: #221A43;
+    height: 100%;
+    width: 100%;
+}
+
+#logo{
+    margin: auto;
+    display: block;
+    height: 5em;
+    margin-top: 1.5em;
+}
+
+h1{
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 2em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+p{
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 1em;
+    color: #FFFFFF;
+    opacity: 0.34;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: auto;
+    height: 11em;
+}
