@@ -2,6 +2,8 @@ body{
     background-color: #221A43;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
+    /*overflow-y: hidden;*/
 }
 
 #logo{
