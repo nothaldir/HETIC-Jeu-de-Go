@@ -60,6 +60,8 @@ var pointJ2 = 0;
 
 var suicide = false;
 
+var waitingPlayer = 2;
+
 
 // on cree le tableau bleu, contenant les lignes
 var tab = new Array();
@@ -83,7 +85,7 @@ for(var x=0; x<9; x++)
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       tabM[x][y] = 0;
-console.log("tableau test")
+console.log("tableau des groupes")
 console.log(tabM);
 
 
@@ -109,30 +111,32 @@ function basic(id) {
 
 	if (player==1 && tab[x][y]==0 && suicide==false && rounds[x][y]!=round-2)
 	{
-		var element = document.getElementById(x+"_"+y);
-		element.innerHTML="<div class='player1'> </div>";
+		// var element = document.getElementById(x+"_"+y);
+		// element.innerHTML="<div class='player1'> </div>";
 		round++;
 		tab[x][y] = player;
 		rounds[x][y] = round;
-		player=2;
-		console.log("basic works");
+		// player=2;
+		console.log("coucoucocuocucoucoucuocu");
 	}
 	else if(player==2 && tab[x][y]==0 && suicide==false)
 	{
-		var element = document.getElementById(x+"_"+y);
-		element.innerHTML="<div class='player2'> </div>";
+		// var element = document.getElementById(x+"_"+y);
+		// element.innerHTML="<div class='player2'> </div>";
 		round++;
 		tab[x][y] = player;
 		rounds[x][y] = round;
-		player=1;
-		console.log("basic works");
+		// player=1;
 	}
 
-	miam();
+	//miam();
 	detectGroup();
+	capture();	
+	maj();
+	playerTurn(); 	
 }
 
-// Function miam
+/* Function miam
 
 function miam() {
     for (var x = 0; x < row; x++) {
@@ -154,6 +158,66 @@ function miam() {
 		}
 	}
 }
+
+*/
+
+function capture()
+{
+    if ( (y-1)>=0 && tab[x][y-1]==waitingPlayer)
+    {
+        libertiesGroup(x, y-1);
+    }
+    if ((x+1)<row && tab[x+1][y]==waitingPlayer)
+    {
+        libertiesGroup(x+1, y);
+    }
+    if ((y+1)<row && tab[x][y+1]==waitingPlayer)
+    {
+        libertiesGroup(x, y+1);
+    }
+    if ((x-1)>=0 && tab[x-1][y]==waitingPlayer)
+    {
+        libertiesGroup(x-1, y);
+    }
+}
+
+
+function libertiesGroup (x,y)
+{
+    detectGroup();
+    var groupeNum = tabM[x][y];
+    for (var i=0; i<row; i++)
+    {
+        for (var j=0; j<row; j++)
+        {
+            if (tabM[i][j]==groupeNum && groupeNum!=0)
+            {
+                if ( ((j-1)>=0 && tab[i][j-1]==0)  || ((i+1)<row && tab[i+1][j]==0) || ((j+1)<row && tab[i][j+1]==0) || ((i-1)>=0 && tab[i-1][j]==0) )
+                {
+                    return;
+                    // Si un pion du groupe à une libertés, il n'y a pas capture
+                }
+            }
+        }
+    }
+    
+    
+    // Si on arrive la, c'est que le groupe n'avait aucune libertés
+    for (var i=0; i<row; i++)
+    {
+        for (var j=0; j<row; j++)
+        {
+            if (tabM[i][j]==groupeNum)
+            {
+                tab[i][j] = 0;
+                //prisonniersJoueur ++;
+                // Donc on remet à 0 les pions capturés du groupe et on increment la variable de
+            }
+        }
+    }
+}
+
+
 
 // Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
 function suicideCheck() {
@@ -222,7 +286,6 @@ function suicideCheck() {
 	}
 }
 
-/*
 function detectGroup() {
     var group_id = 1;
     for (var x=0; x < row; x++) {
@@ -286,4 +349,42 @@ function detectGroup() {
         }
     }
 }
-*/
+
+function playerTurn ()
+{
+    if (player == 1)
+    {
+        waitingPlayer = 1;
+        player = 2;
+    }  
+    else
+    {
+        waitingPlayer = 2;
+        player = 1;   
+    }
+}
+
+function maj() {
+    for (var i = 0; i < row; i++) {
+        for (var j = 0; j < row; j++) {
+            if (tab[i][j] == 0) 
+            {
+                var element = document.getElementById(i+"_"+j);
+				element.innerHTML=" ";
+				console.log("text0");
+            }
+            else if (tab[i][j] == 1) 
+            {
+                var element = document.getElementById(i+"_"+j);
+				element.innerHTML="<div class='player1'> </div>";
+				console.log("text1");
+            } 
+            else if (tab[i][j] == 2) 
+            {
+                var element = document.getElementById(i+"_"+j);
+				element.innerHTML="<div class='player2'> </div>";
+				console.log("text2");
+            }
+        }
+    }
+}
