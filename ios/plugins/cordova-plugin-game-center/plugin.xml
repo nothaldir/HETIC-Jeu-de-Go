@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-game-center" version="0.4.1">
+    <name>Game Center</name>
+    <author>Lee Crossley (http://ilee.co.uk/)</author>
+    <description>Cordova Game Center Plugin to utilise the iOS Game Center in your app.
+        There is currently support for authentication, submitting a score to a leaderboard,
+        displaying a native leaderboard and achievements.</description>
+    <keywords>cordova, game, game center, gamecenter, leaderboard, player, achievements</keywords>
+    <license>MIT</license>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <js-module src="www/gamecenter.js" name="GameCenter">
+        <clobbers target="gamecenter" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="GameCenter">
+                <param name="ios-package" value="GameCenter" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/GameCenter.h" />
+        <source-file src="src/ios/GameCenter.m" />
+        <framework src="GameKit.framework" />
+    </platform>
+</plugin>

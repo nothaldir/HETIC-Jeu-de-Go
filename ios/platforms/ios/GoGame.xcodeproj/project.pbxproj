@@ -40,6 +40,8 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		D647B680B3C946DE9D37C39B /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0EDEF9FC748F7B2BC567B /* CDVStatusBar.m */; };
+		6E510D748F0E4602BDC52CEA /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBD39D852444AFE867189CF /* GameCenter.m */; };
+		1DD297FF5477446C8FF90537 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F0FCA494654C21AD0986C7 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,9 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "GoGame/config.xml"; sourceTree = "<group>"; };
 		FAD0EDEF9FC748F7B2BC567B /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		888942B1EA594FA0BB20A0BA /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		BFBD39D852444AFE867189CF /* GameCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "GameCenter.m"; path = "cordova-plugin-game-center/GameCenter.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1442AC62EC1A4BE49FC4EDD6 /* GameCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GameCenter.h"; path = "cordova-plugin-game-center/GameCenter.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		87F0FCA494654C21AD0986C7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "GameKit.framework"; path = "System/Library/Frameworks/GameKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +123,7 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+				1DD297FF5477446C8FF90537 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +196,7 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				87F0FCA494654C21AD0986C7 /* GameKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,6 +214,8 @@
 			children = (
 				FAD0EDEF9FC748F7B2BC567B /* CDVStatusBar.m */,
 				888942B1EA594FA0BB20A0BA /* CDVStatusBar.h */,
+				BFBD39D852444AFE867189CF /* GameCenter.m */,
+				1442AC62EC1A4BE49FC4EDD6 /* GameCenter.h */,
 			);
 			name = Plugins;
 			path = "GoGame/Plugins";
@@ -392,6 +401,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				D647B680B3C946DE9D37C39B /* CDVStatusBar.m in Sources */,
+				6E510D748F0E4602BDC52CEA /* GameCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
