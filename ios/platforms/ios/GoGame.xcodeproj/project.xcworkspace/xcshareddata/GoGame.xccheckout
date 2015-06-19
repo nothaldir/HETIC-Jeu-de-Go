@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9C91138C-2ADA-4713-A468-61ACBAB70162</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GoGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>23CD5C43690AAB56938ED3618D8D26E77A000747</key>
+		<string>https://github.com/nothaldir/Jeu-de-Go.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/platforms/ios/GoGame.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>23CD5C43690AAB56938ED3618D8D26E77A000747</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nothaldir/Jeu-de-Go.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>23CD5C43690AAB56938ED3618D8D26E77A000747</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>23CD5C43690AAB56938ED3618D8D26E77A000747</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Jeu-de-Go</string>
+		</dict>
+	</array>
+</dict>
+</plist>

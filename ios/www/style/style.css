@@ -7,12 +7,7 @@ html, body{
     background-color: #221A43;
     height: 100%;
     width: 100%;
-<<<<<<< HEAD
-    overflow-x: hidden;
-    /*overflow-y: hidden;*/
-=======
     overflow-y:hidden;
->>>>>>> origin/master
 }
 
 #logo{
