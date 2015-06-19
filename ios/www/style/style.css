@@ -50,6 +50,23 @@ img {
     margin-top: 11em;
 }
 
+.view{
+    position: absolute;
+    top:10em;
+    bottom:8em;
+    left:2em;
+    right:2em;
+}
+
+.panel{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+}
 
 /* ------------ STYLE DU GOBAN ------------ */
 
