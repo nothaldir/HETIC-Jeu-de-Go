@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>GoGame</title>
+
     <!-- Style Perso -->
     <link rel="stylesheet" href="style/style.css">
     <!-- Slick Carousel -->
@@ -23,12 +24,12 @@
     <div class="carousel">
         <div class="single-item">
             <div class="animated fadeIn multiplayer">
-                <a href="google.fr"><img src="img/multiplayer.png" alt="Image du multiplayer"></a>
+                <a href="#game"><img src="img/multiplayer.png" alt="Image du multiplayer"></a>
                 <h1>multiplayer</h1>
                 <p>Jouer sur le même iPad, l'un contre l'autre</p>
             </div>
             <div class="botplayer">
-                <img src="img/botplayer.png" alt="Image du BotPlayer">
+                <a href="#goban_front"><img src="img/botplayer.png" alt="Image du BotPlayer"></a>
                 <h1>Bot Player</h1>
                 <p>Jouer contre l'iPad et essayer de gagner</p>
             </div>
@@ -40,8 +41,8 @@
         </div>
     </div>
 
-    <div>
-       <img src="img/grid.png" alt="grid" id="goban_back">
+    <div id="game">
+        <img src="img/grid.png" alt="grid" id="goban_back">
         <div id="goban_front"></div>
     </div>
 
@@ -51,16 +52,15 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
     <script type="text/javascript">
+        // Carousel
         $(document).ready(function(){
             $('.single-item').slick({
                 arrows: false,
                 dots: true,
             });
         });
+        // Carousel End
 
-        $(function() {
-            $( "#dialog" ).dialog();
-        });
   </script>
 
 </body>

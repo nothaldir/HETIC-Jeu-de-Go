@@ -1,14 +1,20 @@
-body{
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
     background-color: #221A43;
     height: 100%;
     width: 100%;
+    overflow-y:hidden;
 }
 
 #logo{
     margin: auto;
     display: block;
-    height: 5em;
-    margin-top: 1.5em;
+    height: 4.5em; /* 5em */
+    margin-top: 2em; /* 2em */
 }
 
 h1{
@@ -31,6 +37,7 @@ p{
     text-transform: uppercase;
     letter-spacing: 0.2em;
     text-align: center;
+    margin-top: 1em;
 }
 
 img {
@@ -51,6 +58,7 @@ img {
     height: 30em;
     margin: auto;
     margin-top: 18em;
+    padding-top: 150px;
 }
 
 #goban_front /* Invisible Goban */
