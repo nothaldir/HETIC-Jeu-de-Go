@@ -131,9 +131,9 @@ function basic(id) {
 
 	//miam();
 	detectGroup();
-	capture();
+	capture();	
 	maj();
-	playerTurn();
+	playerTurn(); 	
 }
 
 /* Function miam
@@ -200,8 +200,8 @@ function libertiesGroup (x,y)
             }
         }
     }
-
-
+    
+    
     // Si on arrive la, c'est que le groupe n'avait aucune libertés
     for (var i=0; i<row; i++)
     {
@@ -356,30 +356,30 @@ function playerTurn ()
     {
         waitingPlayer = 1;
         player = 2;
-    }
+    }  
     else
     {
         waitingPlayer = 2;
-        player = 1;
+        player = 1;   
     }
 }
 
 function maj() {
     for (var i = 0; i < row; i++) {
         for (var j = 0; j < row; j++) {
-            if (tab[i][j] == 0)
+            if (tab[i][j] == 0) 
             {
                 var element = document.getElementById(i+"_"+j);
 				element.innerHTML=" ";
 				console.log("text0");
             }
-            else if (tab[i][j] == 1)
+            else if (tab[i][j] == 1) 
             {
                 var element = document.getElementById(i+"_"+j);
 				element.innerHTML="<div class='player1'> </div>";
 				console.log("text1");
-            }
-            else if (tab[i][j] == 2)
+            } 
+            else if (tab[i][j] == 2) 
             {
                 var element = document.getElementById(i+"_"+j);
 				element.innerHTML="<div class='player2'> </div>";
