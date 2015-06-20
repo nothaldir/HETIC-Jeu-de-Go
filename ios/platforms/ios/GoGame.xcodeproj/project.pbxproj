@@ -42,6 +42,9 @@
 		D647B680B3C946DE9D37C39B /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0EDEF9FC748F7B2BC567B /* CDVStatusBar.m */; };
 		6E510D748F0E4602BDC52CEA /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBD39D852444AFE867189CF /* GameCenter.m */; };
 		1DD297FF5477446C8FF90537 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F0FCA494654C21AD0986C7 /* GameKit.framework */; };
+		873C9B1562DD4E03BB92C767 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C890757DC047DC8C6A39FC /* SocialSharing.m */; };
+		526249E58D9E478696551B08 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B7A6CF75B043BB99C7710F /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		27A71B8309FE45C99984F28A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C26EC9900E4A8093086B14 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,10 @@
 		BFBD39D852444AFE867189CF /* GameCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "GameCenter.m"; path = "cordova-plugin-game-center/GameCenter.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		1442AC62EC1A4BE49FC4EDD6 /* GameCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GameCenter.h"; path = "cordova-plugin-game-center/GameCenter.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		87F0FCA494654C21AD0986C7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "GameKit.framework"; path = "System/Library/Frameworks/GameKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		B0C890757DC047DC8C6A39FC /* SocialSharing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SocialSharing.m"; path = "nl.x-services.plugins.socialsharing/SocialSharing.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		B1066B210898464ABC3E260A /* SocialSharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SocialSharing.h"; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		52B7A6CF75B043BB99C7710F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		E2C26EC9900E4A8093086B14 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +131,8 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				1DD297FF5477446C8FF90537 /* GameKit.framework in Frameworks */,
+				526249E58D9E478696551B08 /* Social.framework in Frameworks */,
+				27A71B8309FE45C99984F28A /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +206,8 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				87F0FCA494654C21AD0986C7 /* GameKit.framework */,
+				52B7A6CF75B043BB99C7710F /* Social.framework */,
+				E2C26EC9900E4A8093086B14 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,6 +227,8 @@
 				888942B1EA594FA0BB20A0BA /* CDVStatusBar.h */,
 				BFBD39D852444AFE867189CF /* GameCenter.m */,
 				1442AC62EC1A4BE49FC4EDD6 /* GameCenter.h */,
+				B0C890757DC047DC8C6A39FC /* SocialSharing.m */,
+				B1066B210898464ABC3E260A /* SocialSharing.h */,
 			);
 			name = Plugins;
 			path = "GoGame/Plugins";
@@ -402,6 +415,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				D647B680B3C946DE9D37C39B /* CDVStatusBar.m in Sources */,
 				6E510D748F0E4602BDC52CEA /* GameCenter.m in Sources */,
+				873C9B1562DD4E03BB92C767 /* SocialSharing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

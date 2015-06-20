@@ -11,8 +11,6 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <!-- Animate CSS -->
     <link rel="stylesheet" href="style/animate.css">
-    <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -42,9 +40,32 @@
     </div>
 
     <div id="game">
-        <img src="img/grid.png" alt="grid" id="goban_back">
-        <div id="goban_front"></div>
+
+        <div class="scorep1">
+            <h1>3</h1>
+            <p class="animated flash">Player 1</p>
+        </div>
+
+        <div class="goban">
+            <img src="img/grid.png" alt="grid" id="goban_back">
+            <div id="goban_front"></div>
+        </div>
+
+        <div class="scorep2">
+            <h1>4</h1>
+            <p>Player 2</p>
+        </div>
+
     </div>
+
+    <div class="divEnd" id="divEnd">
+        <h1 class="playerwin">player 1</h1>
+        <p class="winner">wins the game</p>
+        <section class="social">
+		    <button id="twitter" onclick="window.plugins.socialsharing.shareViaTwitter('Je suis juste un ouf au GoGame !', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10387411_10204778963131356_1987237599792565532_n.jpg?oh=8ccfa386b22ef4cee90899267fb4cf72&oe=55F39D01', 'https://www.facebook.com/gala.pillot')">Twitter</button>
+			<button id="facebook" onclick="window.plugins.socialsharing.shareViaFacebook('Je suis juste un ouf au GoGame !', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10387411_10204778963131356_1987237599792565532_n.jpg?oh=8ccfa386b22ef4cee90899267fb4cf72&oe=55F39D01', 'https://www.facebook.com/gala.pillot')">Facebook</button>
+		</section>
+	</div>
 
     <!-- Le script qui crée la popup -->
     <script src="js/popup.js"></script>
@@ -53,6 +74,7 @@
     <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="jquery/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
 
     <script type="text/javascript">
         // Carousel
