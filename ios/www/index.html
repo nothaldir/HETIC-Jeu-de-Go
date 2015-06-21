@@ -15,6 +15,12 @@
 </head>
 <body>
 
+
+<audio id="sound" visibility="hidden">
+        <source src="sounds/combowhore.mp3" type="audio/mp3" />
+</audio>
+
+
     <div class="header">
         <img id="logo" src="img/logo.png" alt="Logo GoGame">
     </div>
@@ -74,6 +80,12 @@
 			<button id="facebook" onclick="window.plugins.socialsharing.shareViaFacebook('Je suis juste un ouf au GoGame !', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10387411_10204778963131356_1987237599792565532_n.jpg?oh=8ccfa386b22ef4cee90899267fb4cf72&oe=55F39D01', 'https://www.facebook.com/gala.pillot')">Facebook</button>
 		</section>
 	</div>
+
+    <div id="combo">
+        <h1 id="nbCombo"></h1>
+        <p id="comboDescr"></p>
+        <button class="close" onClick="off()">Close</button>
+    </div>
 
     <!-- Le script qui crée la popup -->
     <script src="js/popup.js"></script>

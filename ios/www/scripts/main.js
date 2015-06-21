@@ -1,3 +1,5 @@
+
+
 //Creating the goban with JS ==>
 
 //If you wish to change the goban size, change 9 by 13 or 19
@@ -44,6 +46,8 @@ var nextPlayer = 2;
 var previousJ1 = null;
 var PreviousJ2 = null;
 
+var nbCombo = null;
+
 
 // Tableau de base
 var tab = new Array();
@@ -88,6 +92,8 @@ function basic(id) {
     console.log("player : " + player);
     console.log("--------------");
 
+    nbCombo = 0;
+
     detectGroup();
     suicideCheck();
 
@@ -98,6 +104,7 @@ function basic(id) {
 		takes[x][y] = round;
         detectGroup();
         capture();
+        combo();
         maj();
         playerTurn();
 	}
@@ -167,6 +174,7 @@ function libertiesGroup (x,y)
                     var element = document.getElementById("scoreJ2");
                     element.innerHTML = scoreJ2;
                 }
+                nbCombo++;
 
                 //prisonniersJoueur ++;
                 // Donc on remet à 0 les pions capturés du groupe et on increment la variable de
@@ -355,4 +363,42 @@ function maj() {
             }
         }
     }
+}
+
+function combo ()
+{
+    if (nbCombo >= 2)
+    {
+        if (nbCombo >=2 && nbCombo<=3) 
+        {
+            var element = document.getElementById("comboDescr");
+            element.innerHTML = "This is a pussy combo, you can do better !";
+        }
+        else if (nbCombo >=4 && nbCombo<=5)
+        {
+            var element = document.getElementById("comboDescr");
+            element.innerHTML = "You're getting better and better. I do not like it.";
+        }
+        else if (nbCombo >= 6)
+        {
+            var element = document.getElementById("comboDescr");
+            element.innerHTML = "Shit, you just mastered it ...";
+        }
+        sound();
+        var element = document.getElementById("nbCombo");
+        element.innerHTML = "Combo x"+nbCombo+" !";
+        document.getElementById("combo").style.display = "block";
+    }
+}
+
+function off()
+{
+    var element = document.getElementById("combo");
+    element.style["display"] = "none";
+    console.log("close");
+}
+
+function sound()
+{  
+  document.getElementById("sound").play();  
 }
