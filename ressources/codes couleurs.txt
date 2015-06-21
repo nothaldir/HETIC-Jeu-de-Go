@@ -1,4 +1,0 @@
-codes couleurs :
-
-bleue : #70E1FC
-rose : #D82EA4
