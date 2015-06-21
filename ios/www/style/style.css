@@ -14,7 +14,7 @@ html, body{
     background-color: #221A43;
     height: 100%;
     width: 100%;
-    overflow-y:hidden;
+    /* overflow-y:hidden; */
 }
 
 #logo{
@@ -75,64 +75,69 @@ img {
     -webkit-overflow-scrolling:touch;
 }
 
+
+.space{
+    height: 20px;
+}
+
 /* ------------ STYLE DU GOBAN ------------ */
 
 #game{
-	margin-top: 10em;
+
 }
+
+
+/* ------- AFFICHAGE DES SCORES ------ */
 
 .scorep1 {
 	display: inline-block;
-	width: 19%;
-	vertical-align: top;
-	margin-top: 17em;
+	width: 22%;
+    vertical-align: text-top;
 }
 
-
 .scorep1 > h1{
-	color: #EC424E;
-	opacity: 1;
-	font-size: 4em;
+	color: #ffffff;
+	opacity: 0.2;
+	font-size: 16em;
 	font-weight: 700;
 	text-align: center;
+    letter-spacing: 0em;
 }
 
 .scorep1 > p{
-	font-family: 'LeviReBrushed';
+	font-family: 'Lato';
 	color: white;
 	opacity: 1;
 	font-size: 1.5em;
-	transform: rotate(-4deg);
-	margin-top: 0.2em;
+    text-align: center;
 }
 
-.scorep2{
+
+.scorep2 {
 	display: inline-block;
-	width: 19%;
-	vertical-align: top;
-	margin-top: 17em;
+	width: 22%;
 }
 
 .scorep2 > h1{
-	color: white;
-	opacity: 1;
-	font-size: 4em;
+	color: #ffffff;
+	opacity: 0.2;
+	font-size: 16em;
 	font-weight: 700;
 	text-align: center;
+    letter-spacing: 0em;
 }
 
 .scorep2 > p{
-	font-family: 'LeviReBrushed';
+	font-family: 'Lato';
 	color: white;
 	opacity: 1;
 	font-size: 1.5em;
-	transform: rotate(-4deg);
-	margin-top: 0.2em;
+	text-align: center;
 }
 
 .goban{
-	width: 60%;
-	display: inline-block;
+	display: block;
+    margin: auto;
 }
 
 #goban_back /* Image */
