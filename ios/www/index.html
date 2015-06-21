@@ -48,21 +48,21 @@
 
     <div id="game">
 
-        <!-- <div class="scorep1">
+        <div class="scorep1">
             <h1>30</h1>
             <p>Player 1</p>
-        </div> -->
-        
+        </div>
+
 
         <div class="goban">
             <img src="img/grid.png" alt="grid" id="goban_back">
             <div id="goban_front"></div>
         </div>
 
-        <!-- <div class="scorep2">
+        <div class="scorep2">
             <h1>60</h1>
             <p>Player 2</p>
-        </div> -->
+        </div>
 
     </div>
 
@@ -93,6 +93,54 @@
             });
         });
         // Carousel End
+
+        function GameCenter() {
+	if(localStorage.getItem('GameCenterLoggedin')) {
+		PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
+	}
+}
+
+GameCenter.prototype.authenticate = function() {
+    PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
+};
+
+GameCenter.prototype.showLeaderboard = function(category) {
+    PhoneGap.exec("GameCenterPlugin.showLeaderboard",category);
+};
+
+GameCenter.prototype.reportScore = function(category,score) {
+    PhoneGap.exec("GameCenterPlugin.reportScore",category,score);
+};
+
+GameCenter.prototype.showAchievements = function() {
+    PhoneGap.exec("GameCenterPlugin.showAchievements");
+};
+
+GameCenter.prototype.getAchievement = function(category) {
+	PhoneGap.exec("GameCenterPlugin.reportAchievementIdentifier",category,100);
+};
+
+GameCenter._userDidLogin = function() {
+	localStorage.setItem('GameCenterLoggedin', 'true');
+};
+
+GameCenter._userDidSubmitScore = function() {
+	alert('score submitted');
+};
+
+GameCenter._userDidFailSubmitScore = function() {
+	alert('score error');
+};
+
+PhoneGap.addConstructor(function()
+{
+  if(!window.plugins)
+  {
+    window.plugins = {};
+  }
+    window.plugins.gamecenter = new GameCenter();
+});
+
 
   </script>
 

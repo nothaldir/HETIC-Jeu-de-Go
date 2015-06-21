@@ -33,18 +33,26 @@
             </div>
             <div class="rules">
                 <a href="rules.html"><img src="img/rules.png" alt="Image des règles du jeu"></a>
-                <h1>Rèles du jeu</h1>
+                <h1>Règles du jeu</h1>
                 <p>Découvrez comment jouer</p>
+            </div>
+            <div class="gamecenter">
+                <a href="#"><img src="img/gamecenter.png" alt="Image du game center"></a>
+                <h1>Game Center</h1>
+                <p>Retrouvez vos scores et achivments</p>
             </div>
         </div>
     </div>
 
+    <div class="space"></div>
+
     <div id="game">
 
         <div class="scorep1">
-            <h1>3</h1>
-            <p class="animated flash">Player 1</p>
+            <h1>30</h1>
+            <p>Player 1</p>
         </div>
+
 
         <div class="goban">
             <img src="img/grid.png" alt="grid" id="goban_back">
@@ -52,7 +60,7 @@
         </div>
 
         <div class="scorep2">
-            <h1>4</h1>
+            <h1>60</h1>
             <p>Player 2</p>
         </div>
 
@@ -85,6 +93,54 @@
             });
         });
         // Carousel End
+
+        function GameCenter() {
+	if(localStorage.getItem('GameCenterLoggedin')) {
+		PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
+	}
+}
+
+GameCenter.prototype.authenticate = function() {
+    PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
+};
+
+GameCenter.prototype.showLeaderboard = function(category) {
+    PhoneGap.exec("GameCenterPlugin.showLeaderboard",category);
+};
+
+GameCenter.prototype.reportScore = function(category,score) {
+    PhoneGap.exec("GameCenterPlugin.reportScore",category,score);
+};
+
+GameCenter.prototype.showAchievements = function() {
+    PhoneGap.exec("GameCenterPlugin.showAchievements");
+};
+
+GameCenter.prototype.getAchievement = function(category) {
+	PhoneGap.exec("GameCenterPlugin.reportAchievementIdentifier",category,100);
+};
+
+GameCenter._userDidLogin = function() {
+	localStorage.setItem('GameCenterLoggedin', 'true');
+};
+
+GameCenter._userDidSubmitScore = function() {
+	alert('score submitted');
+};
+
+GameCenter._userDidFailSubmitScore = function() {
+	alert('score error');
+};
+
+PhoneGap.addConstructor(function()
+{
+  if(!window.plugins)
+  {
+    window.plugins = {};
+  }
+    window.plugins.gamecenter = new GameCenter();
+});
+
 
   </script>
 
