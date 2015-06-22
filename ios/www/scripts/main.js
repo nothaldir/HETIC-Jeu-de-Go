@@ -369,7 +369,7 @@ function combo ()
 {
     if (nbCombo >= 2)
     {
-        if (nbCombo >=2 && nbCombo<=3) 
+        if (nbCombo >=2 && nbCombo<=3)
         {
             var element = document.getElementById("comboDescr");
             element.innerHTML = "This is a pussy combo, you can do better !";
@@ -403,8 +403,8 @@ function off()
 }
 
 function sound()
-{  
-  document.getElementById("sound").play();  
+{
+  document.getElementById("sound").play();
 }
 
 var sec = 00;
@@ -437,9 +437,9 @@ function timer()
 }
 
 window.setInterval(function(){
-  
+
   timer();
-  
+
 }, 1000);
 
 function endGame()
@@ -464,4 +464,8 @@ function endGame()
     var element = document.getElementById("divEnd");
     element.className = "animated fadeIn";
     document.getElementById("divEnd").style.display = "block";
+}
+
+{
+  document.getElementById("sound").play();
 }
