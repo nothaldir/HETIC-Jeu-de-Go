@@ -422,13 +422,13 @@ function timer()
     {
         sec--;
         var element = document.getElementById("timer");
-        element.innerHTML = "<p>0"+min+":"+"0"+sec+"</p>";
+        element.innerHTML = "<h1>0"+min+":"+"0"+sec+"</h1>";
     }
     else if (sec>10)
     {
         sec--;
         var element = document.getElementById("timer");
-        element.innerHTML = "<p>0"+min+":"+sec+"</p>";
+        element.innerHTML = "<h1>0"+min+":"+sec+"</h1>";
     }
     if (sec==0 && min==0)
     {
