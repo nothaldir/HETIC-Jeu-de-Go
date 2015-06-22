@@ -14,8 +14,8 @@ html, body{
     background-color: #221A43;
     height: 100%;
     width: 100%;
-    /* overflow-y:hidden; */
-}
+/*    overflow-y:hidden;
+*/}
 
 #logo{
     margin: auto;
@@ -198,7 +198,7 @@ img {
 	display: none;
 }
 
-.playerwin{
+#playerwin{
 	font-family: 'LeviReBrushed';
 	font-size: 8em;
 	color: #FFFFFF;
@@ -206,7 +206,7 @@ img {
 	margin-top: 2em;
 }
 
-.winner{
+#winner{
 	font-size: 2em;
 	margin-top: 0em;
 	font-weight: 700;
@@ -247,6 +247,92 @@ img {
 
 }
 
+<<<<<<< HEAD
+.rules_main {
+    margin-top:80px;
+}
+
+#rules_first, #rules_two, #rules_three, #rules_three_bis, #rules_four {
+    height:300px;
+}
+
+#liberte, #chaine, #chaine_prise {
+    float:left;
+    margin-right:20px;
+}
+
+#prise, #chaine_bis, #chaine_prise_bis {
+    float:right;
+    margin-left:20px;
+}
+
+#rules_first > h3 {
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-align:left;
+}
+
+.p_orange1 {
+    font-family: 'Lato', sans-serif;
+    font-weight:300;
+    opacity:0.8;
+    color:#ff5330;
+    font-size:15px;
+    text-align:right!important;
+}
+
+#rules_first > p {
+    text-align:left;
+}
+
+#rules_two > h3 {
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-align:right;
+}
+
+#rules_three > h3 {
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-align:left;
+}
+
+#rules_three_bis > h3 {
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-align:right;
+}
+
+#rules_four > h3 {
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-align:left;
+}
+
+.p_orange2 {
+    font-family: 'Lato', sans-serif;
+    font-weight:300;
+    opacity:0.8;
+    color:#ff5330;
+    font-size:15px;
+    text-align:left!important;
+}
+
+#rules_two > p {
+    text-align:right;
+}
+
+#rules_three > p {
+    text-align:left;
+}
+
+#rules_three_bis > p {
+    text-align:right;
+}
+
+#rules_four > p {
+    text-align:left;
+=======
 /* Combo */
 
 #combo 
@@ -303,4 +389,16 @@ img {
     display: block;
     margin: 3% auto auto;
     cursor: pointer;
+<<<<<<< HEAD
 }
+
+/* Timer end game */
+
+#timer
+{
+    vertical-align: text-top;
+}
+=======
+>>>>>>> origin/master
+}
+>>>>>>> origin/master

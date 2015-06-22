@@ -387,13 +387,17 @@ function combo ()
         sound();
         var element = document.getElementById("nbCombo");
         element.innerHTML = "Combo x"+nbCombo+" !";
+        var element = document.getElementById("combo");
+        element.className = "animated fadeIn";
         document.getElementById("combo").style.display = "block";
+
     }
 }
 
 function off()
 {
     var element = document.getElementById("combo");
+    element.className = "animated fadeOut";
     element.style["display"] = "none";
     console.log("close");
 }
@@ -401,4 +405,63 @@ function off()
 function sound()
 {  
   document.getElementById("sound").play();  
+}
+
+var sec = 00;
+var min = 05;
+
+
+function timer()
+{
+    if (sec==00)
+    {
+        min--;
+        sec=60;
+    }
+    if (sec<=10)
+    {
+        sec--;
+        var element = document.getElementById("timer");
+        element.innerHTML = "<p>0"+min+":"+"0"+sec+"</p>";
+    }
+    else if (sec>10)
+    {
+        sec--;
+        var element = document.getElementById("timer");
+        element.innerHTML = "<p>0"+min+":"+sec+"</p>";
+    }
+    if (sec==0 && min==0)
+    {
+        endGame();
+    }
+}
+
+window.setInterval(function(){
+  
+  timer();
+  
+}, 1000);
+
+function endGame()
+{
+    if (scoreJ1 > scoreJ2)
+    {
+        var element = document.getElementById("playerwin");
+        element.innerHTML = "Player 1";
+    }
+    else if (scoreJ2 > scoreJ1)
+    {
+        var element = document.getElementById("playerwin");
+        element.innerHTML = "Player 2";
+    }
+    else if (scoreJ1 == scoreJ2)
+    {
+        var element = document.getElementById("playerwin");
+        element.innerHTML = "It's a draw !";
+        var element = document.getElementById("winner");
+        element.innerHTML = "You're both losers ...";
+    }
+    var element = document.getElementById("divEnd");
+    element.className = "animated fadeIn";
+    document.getElementById("divEnd").style.display = "block";
 }
