@@ -33,8 +33,8 @@ for (var i = boardSize; i > 0; i--)
 
 var round = 0;
 
-var pointJ1 = 0;
-var pointJ2 = 0;
+var scoreJ1 = 0;
+var scoreJ2 = 0;
 
 var suicide = false;
 
@@ -45,14 +45,11 @@ var previousJ1 = null;
 var PreviousJ2 = null;
 
 
-// on cree le tableau bleu, contenant les lignes
+// Tableau de base
 var tab = new Array();
-// on cree les lignes (tableau vert) les unes après les autres
 for(var x=0; x<9; x++)
    tab[x] = new Array();
-// on parcourt les lignes...
 for(var x=0; x<9; x++)
-   // ... et dans chaque ligne, on parcourt les cellules
    for(var y=0; y<9; y++)
       tab[x][y] = 0;
 console.log("Tableau de base :")
@@ -71,7 +68,7 @@ console.log("tableau des groupes")
 console.log(groups);
 
 
-// Tableau qui stock les tours
+// Stock à quel tour un pion a été mangé
 var takes = new Array();
 for(var x=0; x<9; x++)
    takes[x] = new Array();
@@ -90,7 +87,6 @@ function basic(id) {
     console.log("y="+y);
     console.log("player : " + player);
     console.log("--------------");
-    console.log(round);
 
     detectGroup();
     suicideCheck();
@@ -101,14 +97,9 @@ function basic(id) {
 		tab[x][y] = player;
 		takes[x][y] = round;
         detectGroup();
-        capture();  
+        capture();
         maj();
-        playerTurn();  
-        if (player==1)
-        {
-            previousJ1=x+""+y;
-            console.log(previousJ1);
-        } 
+        playerTurn();
 	}
 }
 
@@ -153,8 +144,8 @@ function libertiesGroup (x,y)
             }
         }
     }
-    
-    
+
+
     // Si on arrive la, c'est que le groupe n'avait aucune libertés
     for (var i=0; i<row; i++)
     {
@@ -164,6 +155,18 @@ function libertiesGroup (x,y)
             {
                 tab[i][j] = 0;
                 takes[i][j] = round;
+                if (player==1)
+                {
+                    scoreJ1++;
+                    var element = document.getElementById("scoreJ1");
+                    element.innerHTML = scoreJ1;
+                }
+                else
+                {
+                    scoreJ2++;
+                    var element = document.getElementById("scoreJ2");
+                    element.innerHTML = scoreJ2;
+                }
 
                 //prisonniersJoueur ++;
                 // Donc on remet à 0 les pions capturés du groupe et on increment la variable de
@@ -178,26 +181,25 @@ function libertiesGroup (x,y)
 // Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
 function suicideCheck() {
 
-	if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==1) && ((y-1)>=0 || tab[x][y-1]==1) && ((y+1)>=row || tab[x][y+1]==1) && ((x+1)>=row || tab[x+1][y]==1)) {
-		if (tab[x-1][y-1]==2 && tab[x-2][y]==2 && tab[x-1][y+1]==2) {
-			// possibilité 1
-			// tu ne peux pas peux jouer si au tour d'avant, P1 a bouffé ton pion
-			// sinon tu peux jouer
+	if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==1) && ((y-1)<=0 || tab[x][y-1]==1) && ((y+1)>=row || tab[x][y+1]==1) && ((x+1)>=row || tab[x+1][y]==1))
+    {
+		if ( ((x-1)<=0 || tab[x-1][y-1]==2) && ((x-2)<=0 || tab[x-2][y]==2) && ((x-1)<=0 || tab[x-1][y+1]==2) )
+        {
 			suicide = false;
 			console.log("suicide = "+suicide);
 		}
-		else if (tab[x][y-2]==2 && tab[x-1][y-1]==2 && tab[x+1][y-1]==2) { // possibilité 2
-			// idem
+		else if ( ((y-2)<=0 || tab[x][y-2]==2) && ((x-1)<=0 || tab[x-1][y-1]==2) && ((x+1)>=row || tab[x+1][y-1]==2) )
+        {
 			suicide = false;
 			console.log("suicide = "+suicide);
 		}
-		else if (tab[x][y+2]==2 && tab[x-1][y+1]==2 && tab[x+1][y+1]==2) { // possibilité 3
-			// idem
+		else if ( ((y+2)>=row || tab[x][y+2]==2) && ((x-1)<=0 || tab[x-1][y+1]==2) && ((x+1)>=row || tab[x+1][y+1]==2) )
+        {
 			suicide = false;
 			console.log("suicide = "+suicide);
 		}
-		else if (tab[x+1][y-1]==2 && tab[x+2][y]==2 && tab[x+1][y+1]==2) { // possibilité 4
-			// idem
+		else if ( ((y-1)<=0 || tab[x+1][y-1]==2) && ((x+2)<=row || tab[x+2][y]==2) && ((x+1)>=row || tab[x+1][y+1]==2) )
+        {
 			suicide = false;
 			console.log("suicide = "+suicide);
 		}
@@ -207,34 +209,33 @@ function suicideCheck() {
 			console.log("suicide = "+suicide);
 		}
 	}
-	else if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==2) && ((y-1)>=0 || tab[x][y-1]==2) && ((y+1)>=row || tab[x][y+1]==2) && ((x+1)>=row || tab[x+1][y]==2)) {
-		if (tab[x-1][y-1]==1 && tab[x-2][y]==1 && tab[x-1][y+1]==1) {
-			// possibilité 1
-			// tu ne peux pas peux jouer si au tour d'avant, P1 a bouffé ton pion
-			// sinon tu peux jouer
-			suicide = false;
-			console.log("suicide = "+suicide);
-		}
-		else if (tab[x][y-2]==1 && tab[x-1][y-1]==1 && tab[x+1][y-1]==1) { // possibilité 2
-			// idem
-			suicide = false;
-			console.log("suicide = "+suicide);
-		}
-		else if (tab[x][y+2]==1 && tab[x-1][y+1]==1 && tab[x+1][y+1]==1) { // possibilité 3
-			// idem
-			suicide = false;
-			console.log("suicide = "+suicide);
-		}
-		else if (tab[x+1][y-1]==1 && tab[x+2][y]==1 && tab[x+1][y+1]==1) { // possibilité 4
-			// idem
-			suicide = false;
-			console.log("suicide = "+suicide);
-		}
-		else
-		{
-			suicide = true;
-			console.log("suicide = "+suicide);
-		}
+	else if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==2) && ((y-1)<=0 || tab[x][y-1]==2) && ((y+1)>=row || tab[x][y+1]==2) && ((x+1)>=row || tab[x+1][y]==2))
+    {
+        if ( ((x-1)<=0 || tab[x-1][y-1]==1) && ((x-2)<=0 || tab[x-2][y]==1) && ((x-1)<=0 || tab[x-1][y+1]==1) )
+        {
+            suicide = false;
+            console.log("suicide = "+suicide);
+        }
+        else if ( ((y-2)<=0 || tab[x][y-2]==1) && ((x-1)<=0 || tab[x-1][y-1]==1) && ((x+1)>=row || tab[x+1][y-1]==1) )
+        {
+            suicide = false;
+            console.log("suicide = "+suicide);
+        }
+        else if ( ((y+2)>=row || tab[x][y+2]==1) && ((x-1)<=0 || tab[x-1][y+1]==1) && ((x+1)>=row || tab[x+1][y+1]==1) )
+        {
+            suicide = false;
+            console.log("suicide = "+suicide);
+        }
+        else if ( ((y-1)<=0 || tab[x+1][y-1]==1) && ((x+2)>=row || tab[x+2][y]==1) && ((x+1)>=row || tab[x+1][y+1]==1) )
+        {
+            suicide = false;
+            console.log("suicide = "+suicide);
+        }
+        else
+        {
+            suicide = true;
+            console.log("suicide = "+suicide);
+        }
 	}
 	else
 	{
@@ -316,11 +317,19 @@ function playerTurn ()
     {
         nextPlayer = 1;
         player = 2;
-    }  
+        var element = document.getElementById("p2");
+        element.className = "animated pulse infinite";
+        var element = document.getElementById("p1");
+        element.classList.remove("infinite");
+    }
     else if (player == 2)
     {
         nextPlayer = 2;
-        player = 1;   
+        player = 1;
+        var element = document.getElementById("p1");
+        element.className = "animated pulse infinite";
+        var element = document.getElementById("p2");
+        element.classList.remove("infinite");
     }
 }
 
@@ -329,17 +338,17 @@ function playerTurn ()
 function maj() {
     for (var i = 0; i < row; i++) {
         for (var j = 0; j < row; j++) {
-            if (tab[i][j] == 0) 
+            if (tab[i][j] == 0)
             {
                 var element = document.getElementById(i+"_"+j);
 				element.innerHTML=" ";
             }
-            else if (tab[i][j] == 1) 
+            else if (tab[i][j] == 1)
             {
                 var element = document.getElementById(i+"_"+j);
 				element.innerHTML="<div class='player1'> </div>";
-            } 
-            else if (tab[i][j] == 2) 
+            }
+            else if (tab[i][j] == 2)
             {
                 var element = document.getElementById(i+"_"+j);
 				element.innerHTML="<div class='player2'> </div>";

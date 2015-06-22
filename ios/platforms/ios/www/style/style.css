@@ -88,14 +88,23 @@ img {
 
 
 /* ------- AFFICHAGE DES SCORES ------ */
-
-.scorep1 {
-	display: inline-block;
-	width: 22%;
-    vertical-align: text-top;
+.scorep1, .scorep2 {
+    display: inline-block;
+    width: 22%;
+    vertical-align: top;  
 }
 
-.scorep1 > h1{
+.scorep1
+{
+    margin-left: 3%;
+}
+
+.scorep2
+{
+    margin-right: 3%;
+}
+
+.scorep1 > h1, .scorep2 > h1{
 	color: #ffffff;
 	opacity: 0.2;
 	font-size: 16em;
@@ -104,7 +113,7 @@ img {
     letter-spacing: 0em;
 }
 
-.scorep1 > p{
+.scorep1 > p, .scorep2 > p{
 	font-family: 'Lato';
 	color: white;
 	opacity: 1;
@@ -112,32 +121,10 @@ img {
     text-align: center;
 }
 
-
-.scorep2 {
-	display: inline-block;
-	width: 22%;
-}
-
-.scorep2 > h1{
-	color: #ffffff;
-	opacity: 0.2;
-	font-size: 16em;
-	font-weight: 700;
-	text-align: center;
-    letter-spacing: 0em;
-}
-
-.scorep2 > p{
-	font-family: 'Lato';
-	color: white;
-	opacity: 1;
-	font-size: 1.5em;
-	text-align: center;
-}
-
 .goban{
-	display: block;
     margin: auto;
+    width: 49%;
+    display: inline-block;
 }
 
 #goban_back /* Image */

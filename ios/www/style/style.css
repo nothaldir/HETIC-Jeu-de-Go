@@ -88,14 +88,23 @@ img {
 
 
 /* ------- AFFICHAGE DES SCORES ------ */
-
-.scorep1 {
-	display: inline-block;
-	width: 22%;
-    vertical-align: text-top;
+.scorep1, .scorep2 {
+    display: inline-block;
+    width: 22%;
+    vertical-align: top;  
 }
 
-.scorep1 > h1{
+.scorep1
+{
+    margin-left: 3%;
+}
+
+.scorep2
+{
+    margin-right: 3%;
+}
+
+.scorep1 > h1, .scorep2 > h1{
 	color: #ffffff;
 	opacity: 0.2;
 	font-size: 16em;
@@ -104,7 +113,7 @@ img {
     letter-spacing: 0em;
 }
 
-.scorep1 > p{
+.scorep1 > p, .scorep2 > p{
 	font-family: 'Lato';
 	color: white;
 	opacity: 1;
@@ -112,32 +121,10 @@ img {
     text-align: center;
 }
 
-
-.scorep2 {
-	display: inline-block;
-	width: 22%;
-}
-
-.scorep2 > h1{
-	color: #ffffff;
-	opacity: 0.2;
-	font-size: 16em;
-	font-weight: 700;
-	text-align: center;
-    letter-spacing: 0em;
-}
-
-.scorep2 > p{
-	font-family: 'Lato';
-	color: white;
-	opacity: 1;
-	font-size: 1.5em;
-	text-align: center;
-}
-
 .goban{
-	display: block;
     margin: auto;
+    width: 49%;
+    display: inline-block;
 }
 
 #goban_back /* Image */
@@ -232,7 +219,6 @@ img {
 	width:310px;
 	margin:auto;
 	margin-top:3em;
-
 }
 
 #twitter{
@@ -261,6 +247,7 @@ img {
 
 }
 
+<<<<<<< HEAD
 .rules_main {
     margin-top:80px;
 }
@@ -345,4 +332,62 @@ img {
 
 #rules_four > p {
     text-align:left;
+=======
+/* Combo */
+
+#combo 
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-attachment:fixed;
+    margin-top:45.1em;
+    padding:0px;
+    text-transform:uppercase;
+}
+
+#combo h1
+{
+    font-family: 'LeviReBrushed';
+    font-size: 8em;
+    color: #FFFFFF;
+    letter-spacing: 0em;
+    margin-top: 2em;
+}
+
+#combo
+{
+    display: none;
+}
+
+#comboDescr
+{
+    font-size: 2em;
+    margin-top: 0em;
+    font-weight: 700;
+    opacity: 1;
+    color: #FF5E00;
+}
+
+.close
+{
+    border: 2px solid #4099FF;
+    background-color:#4099FF;
+    color:white;
+    width:150px;
+    height:40px;
+    font-family: 'Lato', sans-serif;
+    font-weight:300;
+    font-size:20px;
+    top:50px;
+    display: block;
+    margin: 3% auto auto;
+    cursor: pointer;
+>>>>>>> origin/master
 }
