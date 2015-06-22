@@ -151,6 +151,7 @@ img {
     display: block;
     position: relative;
     top: -32em;
+    left: -4.9em;
 }
 
 .front /* Case of Goban */
