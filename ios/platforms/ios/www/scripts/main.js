@@ -1,3 +1,5 @@
+
+
 //Creating the goban with JS ==>
 
 //If you wish to change the goban size, change 9 by 13 or 19
@@ -44,6 +46,8 @@ var nextPlayer = 2;
 var previousJ1 = null;
 var PreviousJ2 = null;
 
+var nbCombo = null;
+
 
 // Tableau de base
 var tab = new Array();
@@ -88,6 +92,8 @@ function basic(id) {
     console.log("player : " + player);
     console.log("--------------");
 
+    nbCombo = 0;
+
     detectGroup();
     suicideCheck();
 
@@ -98,6 +104,7 @@ function basic(id) {
 		takes[x][y] = round;
         detectGroup();
         capture();
+        combo();
         maj();
         playerTurn();
 	}
@@ -167,6 +174,7 @@ function libertiesGroup (x,y)
                     var element = document.getElementById("scoreJ2");
                     element.innerHTML = scoreJ2;
                 }
+                nbCombo++;
 
                 //prisonniersJoueur ++;
                 // Donc on remet à 0 les pions capturés du groupe et on increment la variable de
@@ -355,4 +363,109 @@ function maj() {
             }
         }
     }
+}
+
+function combo ()
+{
+    if (nbCombo >= 2)
+    {
+        if (nbCombo >=2 && nbCombo<=3)
+        {
+            var element = document.getElementById("comboDescr");
+            element.innerHTML = "This is a pussy combo, you can do better !";
+        }
+        else if (nbCombo >=4 && nbCombo<=5)
+        {
+            var element = document.getElementById("comboDescr");
+            element.innerHTML = "You're getting better and better. I do not like it.";
+        }
+        else if (nbCombo >= 6)
+        {
+            var element = document.getElementById("comboDescr");
+            element.innerHTML = "Shit, you just mastered it ...";
+        }
+        sound();
+        var element = document.getElementById("nbCombo");
+        element.innerHTML = "Combo x"+nbCombo+" !";
+        var element = document.getElementById("combo");
+        element.className = "animated fadeIn";
+        document.getElementById("combo").style.display = "block";
+
+    }
+}
+
+function off()
+{
+    var element = document.getElementById("combo");
+    element.className = "animated fadeOut";
+    element.style["display"] = "none";
+    console.log("close");
+}
+
+function sound()
+{
+  document.getElementById("sound").play();
+}
+
+var sec = 00;
+var min = 05;
+
+
+function timer()
+{
+    if (sec==00)
+    {
+        min--;
+        sec=60;
+    }
+    if (sec<=10)
+    {
+        sec--;
+        var element = document.getElementById("timer");
+        element.innerHTML = "<h1>0"+min+":"+"0"+sec+"</h1>";
+    }
+    else if (sec>10)
+    {
+        sec--;
+        var element = document.getElementById("timer");
+        element.innerHTML = "<h1>0"+min+":"+sec+"</h1>";
+    }
+    if (sec==0 && min==0)
+    {
+        endGame();
+    }
+}
+
+window.setInterval(function(){
+
+  timer();
+
+}, 1000);
+
+function endGame()
+{
+    if (scoreJ1 > scoreJ2)
+    {
+        var element = document.getElementById("playerwin");
+        element.innerHTML = "Player 1";
+    }
+    else if (scoreJ2 > scoreJ1)
+    {
+        var element = document.getElementById("playerwin");
+        element.innerHTML = "Player 2";
+    }
+    else if (scoreJ1 == scoreJ2)
+    {
+        var element = document.getElementById("playerwin");
+        element.innerHTML = "It's a draw !";
+        var element = document.getElementById("winner");
+        element.innerHTML = "You're both losers ...";
+    }
+    var element = document.getElementById("divEnd");
+    element.className = "animated fadeIn";
+    document.getElementById("divEnd").style.display = "block";
+}
+
+{
+  document.getElementById("sound").play();
 }
