@@ -386,7 +386,7 @@ function combo ()
         }
         sound();
         var element = document.getElementById("nbCombo");
-        element.innerHTML = "Combo x"+nbCombo+" !";
+        element.innerHTML = "Combo x"+nbCombo;
         var element = document.getElementById("combo");
         element.className = "animated fadeIn";
         document.getElementById("combo").style.display = "block";
@@ -464,8 +464,4 @@ function endGame()
     var element = document.getElementById("divEnd");
     element.className = "animated fadeIn";
     document.getElementById("divEnd").style.display = "block";
-}
-
-{
-  document.getElementById("sound").play();
 }

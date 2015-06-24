@@ -45,6 +45,10 @@
 		873C9B1562DD4E03BB92C767 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C890757DC047DC8C6A39FC /* SocialSharing.m */; };
 		526249E58D9E478696551B08 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B7A6CF75B043BB99C7710F /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		27A71B8309FE45C99984F28A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C26EC9900E4A8093086B14 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FAC21BE7F875438DB5B3A1C0 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BE5125D3414D6EBBC352C0 /* CDVFile.m */; };
+		07FED7C8DA084FF38473418E /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E42BE5CBE74BB8AEF12B69 /* CDVLocalFilesystem.m */; };
+		0A81A6F50DDA475F99763102 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52CDB16964BA88185D48E /* CDVAssetLibraryFilesystem.m */; };
+		FED9234CF42B427FB5F44110 /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5767D4F22842B894F73745 /* CDVSound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +123,14 @@
 		B1066B210898464ABC3E260A /* SocialSharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SocialSharing.h"; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		52B7A6CF75B043BB99C7710F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		E2C26EC9900E4A8093086B14 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		A1BE5125D3414D6EBBC352C0 /* CDVFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVFile.m"; path = "org.apache.cordova.file/CDVFile.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		58E42BE5CBE74BB8AEF12B69 /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocalFilesystem.m"; path = "org.apache.cordova.file/CDVLocalFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		BEC52CDB16964BA88185D48E /* CDVAssetLibraryFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAssetLibraryFilesystem.m"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		8B0CA575464D40C899B29B0A /* CDVFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFile.h"; path = "org.apache.cordova.file/CDVFile.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		50FFB6F758934E83830FCF2B /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocalFilesystem.h"; path = "org.apache.cordova.file/CDVLocalFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FD6BACC2829C4970B6716026 /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAssetLibraryFilesystem.h"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		8F5767D4F22842B894F73745 /* CDVSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSound.m"; path = "org.apache.cordova.media/CDVSound.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		BEE5D69654EA444B8A01DB7E /* CDVSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSound.h"; path = "org.apache.cordova.media/CDVSound.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +241,14 @@
 				1442AC62EC1A4BE49FC4EDD6 /* GameCenter.h */,
 				B0C890757DC047DC8C6A39FC /* SocialSharing.m */,
 				B1066B210898464ABC3E260A /* SocialSharing.h */,
+				A1BE5125D3414D6EBBC352C0 /* CDVFile.m */,
+				58E42BE5CBE74BB8AEF12B69 /* CDVLocalFilesystem.m */,
+				BEC52CDB16964BA88185D48E /* CDVAssetLibraryFilesystem.m */,
+				8B0CA575464D40C899B29B0A /* CDVFile.h */,
+				50FFB6F758934E83830FCF2B /* CDVLocalFilesystem.h */,
+				FD6BACC2829C4970B6716026 /* CDVAssetLibraryFilesystem.h */,
+				8F5767D4F22842B894F73745 /* CDVSound.m */,
+				BEE5D69654EA444B8A01DB7E /* CDVSound.h */,
 			);
 			name = Plugins;
 			path = "GoGame/Plugins";
@@ -416,6 +436,10 @@
 				D647B680B3C946DE9D37C39B /* CDVStatusBar.m in Sources */,
 				6E510D748F0E4602BDC52CEA /* GameCenter.m in Sources */,
 				873C9B1562DD4E03BB92C767 /* SocialSharing.m in Sources */,
+				FAC21BE7F875438DB5B3A1C0 /* CDVFile.m in Sources */,
+				07FED7C8DA084FF38473418E /* CDVLocalFilesystem.m in Sources */,
+				0A81A6F50DDA475F99763102 /* CDVAssetLibraryFilesystem.m in Sources */,
+				FED9234CF42B427FB5F44110 /* CDVSound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

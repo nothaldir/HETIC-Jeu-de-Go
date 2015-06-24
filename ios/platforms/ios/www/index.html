@@ -15,12 +15,6 @@
 </head>
 <body>
 
-
-<audio id="sound" visibility="hidden">
-        <source src="sounds/combowhore.mp3" type="audio/mp3" />
-</audio>
-
-
     <div class="header">
         <img id="logo" src="img/logo.png" alt="Logo GoGame">
     </div>
@@ -28,12 +22,12 @@
     <div class="carousel">
         <div class="single-item">
             <div class="animated fadeIn multiplayer">
-                <a href="#game"><img src="img/multiplayer.png" alt="Image du multiplayer"></a>
+                <a href="game.html"><img src="img/multiplayer.png" alt="Image du multiplayer"></a>
                 <h1>multiplayer</h1>
                 <p>Jouez sur le même iPad, l'un contre l'autre</p>
             </div>
             <div class="botplayer">
-                <a href="#game"><img src="img/botplayer.png" alt="Image du BotPlayer"></a>
+                <a href="game.html"><img src="img/botplayer.png" alt="Image du BotPlayer"></a>
                 <h1>Bot Player</h1>
                 <p>Jouez contre l'iPad et essayez de gagner</p>
             </div>
@@ -49,55 +43,6 @@
             </div>
         </div>
     </div>
-
-
-    
-
-    <div class="space"></div>
-
-    <div id="game">
-        
-        <div id="timer">
-            <h1>05:00</h1>
-        </div>
-        
-        <div class="scorep1">
-            <h1 id="scoreJ1">0</h1>
-            <p class="animated pulse infinite" id="p1">Player 1</p>
-        </div>
-
-
-        <div class="goban">
-            <img src="img/grid.png" alt="grid" id="goban_back">
-            <div id="goban_front"></div>
-        </div>
-
-        <div class="scorep2">
-            <h1 id="scoreJ2">0</h1>
-            <p id="p2">Player 2</p>
-        </div>
-
-    </div>
-
-    
-
-    <div class="divEnd" id="divEnd">
-        <h1 id="playerwin">player 1</h1>
-        <p id="winner">wins the game</p>
-        <section class="social">
-		    <button id="twitter" onclick="window.plugins.socialsharing.shareViaTwitter('Je suis juste un ouf au GoGame !', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10387411_10204778963131356_1987237599792565532_n.jpg?oh=8ccfa386b22ef4cee90899267fb4cf72&oe=55F39D01', 'https://www.facebook.com/gala.pillot')">Twitter</button>
-			<button id="facebook" onclick="window.plugins.socialsharing.shareViaFacebook('Je suis juste un ouf au GoGame !', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10387411_10204778963131356_1987237599792565532_n.jpg?oh=8ccfa386b22ef4cee90899267fb4cf72&oe=55F39D01', 'https://www.facebook.com/gala.pillot')">Facebook</button>
-		</section>
-	</div>
-
-    <div id="combo">
-        <h1 id="nbCombo"></h1>
-        <p id="comboDescr"></p>
-        <button class="close" onClick="off()">Close</button>
-    </div>
-
-    <!-- Le script qui crée la popup -->
-    <script src="js/popup.js"></script>
 
     <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
@@ -116,51 +61,51 @@
         // Carousel End
 
         function GameCenter() {
-	if(localStorage.getItem('GameCenterLoggedin')) {
+            if(localStorage.getItem('GameCenterLoggedin')) {
 		PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
 	}
 }
 
-GameCenter.prototype.authenticate = function() {
-    PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
-};
+    GameCenter.prototype.authenticate = function() {
+        PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
+    };
 
-GameCenter.prototype.showLeaderboard = function(category) {
-    PhoneGap.exec("GameCenterPlugin.showLeaderboard",category);
-};
+    GameCenter.prototype.showLeaderboard = function(category) {
+        PhoneGap.exec("GameCenterPlugin.showLeaderboard",category);
+    };
 
-GameCenter.prototype.reportScore = function(category,score) {
-    PhoneGap.exec("GameCenterPlugin.reportScore",category,score);
-};
+    GameCenter.prototype.reportScore = function(category,score) {
+        PhoneGap.exec("GameCenterPlugin.reportScore",category,score);
+    };
 
-GameCenter.prototype.showAchievements = function() {
-    PhoneGap.exec("GameCenterPlugin.showAchievements");
-};
+    GameCenter.prototype.showAchievements = function() {
+        PhoneGap.exec("GameCenterPlugin.showAchievements");
+    };
 
-GameCenter.prototype.getAchievement = function(category) {
-	PhoneGap.exec("GameCenterPlugin.reportAchievementIdentifier",category,100);
-};
+    GameCenter.prototype.getAchievement = function(category) {
+    	PhoneGap.exec("GameCenterPlugin.reportAchievementIdentifier",category,100);
+    };
 
-GameCenter._userDidLogin = function() {
-	localStorage.setItem('GameCenterLoggedin', 'true');
-};
+    GameCenter._userDidLogin = function() {
+    	localStorage.setItem('GameCenterLoggedin', 'true');
+    };
 
-GameCenter._userDidSubmitScore = function() {
-	alert('score submitted');
-};
+    GameCenter._userDidSubmitScore = function() {
+    	alert('score submitted');
+    };
 
-GameCenter._userDidFailSubmitScore = function() {
-	alert('score error');
-};
+    GameCenter._userDidFailSubmitScore = function() {
+    	alert('score error');
+    };
 
-PhoneGap.addConstructor(function()
-{
-  if(!window.plugins)
-  {
-    window.plugins = {};
-  }
-    window.plugins.gamecenter = new GameCenter();
-});
+    PhoneGap.addConstructor(function()
+    {
+      if(!window.plugins)
+      {
+        window.plugins = {};
+      }
+        window.plugins.gamecenter = new GameCenter();
+    });
 
 
   </script>

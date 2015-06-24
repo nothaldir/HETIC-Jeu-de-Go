@@ -16,59 +16,54 @@
 <body>
 
     <div class="header">
-        <img id="logo" src="img/logo.png" alt="Logo GoGame">
+        <a href="index.html"><img id="logo" src="img/logo.png" alt="Logo GoGame"></a>
     </div>
 
     <section class="view animated fadeIn">
         <section class="panel">
+
             <h1>comment jouer</h1>
-            <div class="rules_main">
-                <div id="rules_first">
-                   <img src="img/DEMO/B1.png" alt="goban" id="liberte">
-                   <h3> LIBERTES </h3>
-                   <p> Les libertés d’une pierre sont les intersections libres adjacentes à cette pierre. Si une pierre adverse occupe l’une de ses intersections adjacentes, elle ôte à la pierre une liberté.</p>
-                
-                   <p class="p_orange1"> </br>Ci-contre, la pierre A a deux libertés. La pierre B en a trois et la pierre C en a quatre. Après Blanc 1, la pierre D n’a plus que trois libertés. </p>
-                </div>
 
-                <div id="rules_two">
-                   <img src="img/DEMO/B2.png" alt="goban" id="prise">
-                   <h3> PRISE </h3>
-                   <p> Quand on occupe la dernière liberté d’une pierre, celle-ci est prise et retirée du Goban. On ne trouvera donc jamais sur le Goban de pierre ne disposant d’aucune liberté. Les pierres prises sont appelées prisonniers.
-                   </p>
-
-                   <p class="p_orange2"></br></br>Ci-contre, si Orange joue sur la dernière liberté de Blanc,  il prend la pierre. </p>
-                </div>
-
-                <div id="rules_three">
-                   <img src="img/DEMO/B3.png" alt="goban" id="chaine">
-                   <h3> CHAÎNE </h3>
-                   <p> Si une pierre de même couleur occupe une des libertés d’une pierre, les deux pierres sont connectées et forment une chaîne. Le nombre de libertés de la chaîne est le total des intersections adjacentes libres.
-                   </p>
-
-                   <p class="p_orange1"></br></br>Ci-contre, les deux pierres Orange forment une chaîne qui a 6 libertés. La chaîne formée par les quatre pierres blanches possède neuf libertés.  </p>
-                </div>
-   
-                <div id="rules_three_bis">
-                   <img src="img/DEMO/B4.png" alt="goban" id="chaine_bis">
-            
-                   <p></br></br>Notez bien que deux intersections en diagonale  ne sont pas adjacentes !</p>
-
-                   <p class="p_orange2"></br></br></br>Ici, la pierre 1 n'est pas connectée à la chaîne de trois pierres. </p>
-                </div>
-
-
-                <div id="rules_four">
-                  <img src="img/DEMO/B5.png" alt="goban" id="chaine_prise">
-                  <h3> CHAÎNE &amp; PRISE </h3>
-                  <p> Les pierres d’une chaîne sont solidaires : elles ne peuvent être prises séparément. Quand on occupe la dernière liberté d’une pierre ou d’une chaîne de pierres, celle-ci est prise et retirée du Goban. Toute chaîne ou toute pierre ne disposant plus que d’une seule liberté est menacée de prise en un seul coup : on dit qu’elle est en « atari ».</p>
-
-                  <p>Les pierres prises sont conservées par le joueur qui prend. Elles serviront lors du décompte final de la partie.
-                  </p>
-                  <img src="img/DEMO/B6.png" alt="goban" id="chaine_prise_bis">
-                  <p class="p_orange1"></br></br></br>Ici, si Blanc joue sur la dernière liberté de la chaîne,  il prend les deux pierres Orange et les retire du Goban. </p>
-               </div>
+            <div class="instruction1">
+                <h3>Libertés</h3>
+                <img src="img/DEMO/B1.png" alt="goban" id="liberte">
+                <p>Les libertés d’une pierre sont les intersections libres adjacentes à cette pierre. Si une pierre adverse occupe l’une de ses intersections adjacentes, elle ôte à la pierre une liberté.</p>
+                <p id="orange">Ci-contre, la pierre A a deux libertés. La pierre B en a trois et la pierre C en a quatre. Après Blanc 1, la pierre D n’a plus que trois libertés.</p>
             </div>
+
+            <div class="instruction2">
+                <h3>Prise</h3>
+                <img src="img/DEMO/B2.png" alt="goban" id="prise">
+                <p>Quand on occupe la dernière liberté d’une pierre, celle-ci est prise et retirée du Goban. On ne trouvera donc jamais sur le Goban de pierre ne disposant d’aucune liberté. Les pierres prises sont appelées prisonniers.</p>
+                <p id="orange">Ci-contre, si Orange joue sur la dernière liberté de Blanc,  il prend la pierre.</p>
+            </div>
+
+            <div class="instruction3">
+                <h3>Chaîne</h3>
+                <img src="img/DEMO/B3.png" alt="goban" id="chaine">
+                <p>Si une pierre de même couleur occupe une des libertés d’une pierre, les deux pierres sont connectées et forment une chaîne. Le nombre de libertés de la chaîne est le total des intersections adjacentes libres.</p>
+                <p id="orange">Ci-contre, les deux pierres Orange forment une chaîne qui a 6 libertés. La chaîne formée par les quatre pierres blanches possède neuf libertés.</p>
+            </div>
+
+            <div class="instruction4">
+                <h3>Chaîne</h3>
+                <img src="img/DEMO/B3.png" alt="goban" id="chaine">
+                <p>Si une pierre de même couleur occupe une des libertés d’une pierre, les deux pierres sont connectées et forment une chaîne. Le nombre de libertés de la chaîne est le total des intersections adjacentes libres.</p>
+                <p id="orange">Ci-contre, les deux pierres Orange forment une chaîne qui a 6 libertés. La chaîne formée par les quatre pierres blanches possède neuf libertés.</p>
+
+                <img src="img/DEMO/B4.png" alt="goban" id="chaine_bis">
+                <p>Notez bien que deux intersections en diagonale ne sont pas adjacentes !</p>
+                <p id="orange">Ici, la pierre 1 n'est pas connectée à la chaîne de trois pierres.</p>
+            </div>
+
+            <div class="instruction5">
+                <h3>Chaîne &amp; Prise</h3>
+                <img src="img/DEMO/B5.png" alt="goban" id="chaine_prise">
+                <p>Les pierres d’une chaîne sont solidaires : elles ne peuvent être prises séparément. Quand on occupe la dernière liberté d’une pierre ou d’une chaîne de pierres, celle-ci est prise et retirée du Goban. Toute chaîne ou toute pierre ne disposant plus que d’une seule liberté est menacée de prise en un seul coup : on dit qu’elle est en « atari ».</p>
+                <img src="img/DEMO/B6.png" alt="goban" id="chaine_prise_bis">
+                <p id="orange">Ici, si Blanc joue sur la dernière liberté de la chaîne,  il prend les deux pierres Orange et les retire du Goban.</p>
+            </div>
+
         </section>
     </section>
 
