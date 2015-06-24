@@ -30,6 +30,9 @@ for (var i = boardSize; i > 0; i--)
   	}
 }
 
+row = 9;
+column = 9;
+
 //Functions to identify the intersections, add powns etc.
 
 var iaMode = false;
@@ -86,6 +89,7 @@ console.log(takes);
 function activateIa()
 {
     iaMode = true;
+    console.log("ia ON");
 }
 
 function basic(id) {
@@ -376,17 +380,17 @@ function combo ()
     console.log("combo");
     if (nbCombo >= 2)
     {
-        if (nbCombo >=2 && nbCombo<=3)
+        if (nbCombo >=3 && nbCombo<=4)
         {
             var element = document.getElementById("comboDescr");
             element.innerHTML = "This is a pussy combo, you can do better !";
         }
-        else if (nbCombo >=4 && nbCombo<=5)
+        else if (nbCombo >=5 && nbCombo<=6)
         {
             var element = document.getElementById("comboDescr");
             element.innerHTML = "You're getting better and better. I do not like it.";
         }
-        else if (nbCombo >= 6)
+        else if (nbCombo >= 7)
         {
             var element = document.getElementById("comboDescr");
             element.innerHTML = "Shit, you just mastered it ...";
@@ -475,5 +479,52 @@ function endGame()
 
 function ia()
 {
+    if (round<8)
+    {
+        if (x<=4 && y<=4)
+        {
+            var tempX = Math.floor((Math.random() * 8) + 4);
+            var tempY = Math.floor((Math.random() * 8) + 4);
+            x=tempX;
+            y=tempY;            
+        }
+        else if (x<=4 && y>=4)
+        {
+            var tempX = Math.floor((Math.random() * 8) + 4);
+            var tempY = Math.floor((Math.random() * 8) + 4);
+            x=tempX;
+            y=tempY;     
+        }
+        else if (x>=4 && y<=4)
+        {
+            var tempX = Math.floor((Math.random() * 8) + 4);
+            var tempY = Math.floor((Math.random() * 8) + 4);
+            x=tempX;
+            y=tempY;     
+        }
+        else if (x>=4 && y>=4)
+        {
+            var tempX = Math.floor((Math.random() * 8) + 4);
+            var tempY = Math.floor((Math.random() * 8) + 4);
+            x=tempX;
+            y=tempY;     
+        }
+    }
 
+    nbCombo = 0;
+
+    detectGroup();
+    suicideCheck();
+
+    if (tab[x][y]!=player && tab[x][y]==0 && suicide==false && takes[x][y]!=round)
+    {
+        round++;
+        tab[x][y] = player;
+        takes[x][y] = round;
+        detectGroup();
+        capture();
+        combo();
+        maj();
+        playerTurn();
+    }
 }
