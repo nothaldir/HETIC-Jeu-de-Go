@@ -32,6 +32,7 @@ for (var i = boardSize; i > 0; i--)
 
 //Functions to identify the intersections, add powns etc.
 
+var iaMode = false;
 
 var round = 0;
 
@@ -82,6 +83,10 @@ for(var x=0; x<9; x++)
 console.log("Tableau tours");
 console.log(takes);
 
+function activateIa()
+{
+    iaMode = true;
+}
 
 function basic(id) {
     var x_y = id.indexOf("_");
@@ -108,6 +113,10 @@ function basic(id) {
         maj();
         playerTurn();
 	}
+    if (iaMode==true)
+    {
+        ia();
+    }
 }
 
 
@@ -317,7 +326,27 @@ function detectGroup() {
     }
 }
 
-
+function maj() {
+    for (var i = 0; i < row; i++) {
+        for (var j = 0; j < row; j++) {
+            if (tab[i][j] == 0)
+            {
+                var element = document.getElementById(i+"_"+j);
+                element.innerHTML=" ";
+            }
+            else if (tab[i][j] == 1)
+            {
+                var element = document.getElementById(i+"_"+j);
+                element.innerHTML="<div class='player1'> </div>";
+            }
+            else if (tab[i][j] == 2)
+            {
+                var element = document.getElementById(i+"_"+j);
+                element.innerHTML="<div class='player2'> </div>";
+            }
+        }
+    }
+}
 
 function playerTurn ()
 {
@@ -342,31 +371,9 @@ function playerTurn ()
 }
 
 
-
-function maj() {
-    for (var i = 0; i < row; i++) {
-        for (var j = 0; j < row; j++) {
-            if (tab[i][j] == 0)
-            {
-                var element = document.getElementById(i+"_"+j);
-				element.innerHTML=" ";
-            }
-            else if (tab[i][j] == 1)
-            {
-                var element = document.getElementById(i+"_"+j);
-				element.innerHTML="<div class='player1'> </div>";
-            }
-            else if (tab[i][j] == 2)
-            {
-                var element = document.getElementById(i+"_"+j);
-				element.innerHTML="<div class='player2'> </div>";
-            }
-        }
-    }
-}
-
 function combo ()
 {
+    console.log("combo");
     if (nbCombo >= 2)
     {
         if (nbCombo >=2 && nbCombo<=3)
@@ -464,4 +471,9 @@ function endGame()
     var element = document.getElementById("divEnd");
     element.className = "animated fadeIn";
     document.getElementById("divEnd").style.display = "block";
+}
+
+function ia()
+{
+
 }
