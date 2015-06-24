@@ -158,12 +158,7 @@ img {
     text-align: center;
 }
 
-<<<<<<< Updated upstream
 /* ------- COMBO ------ */
-=======
-<<<<<<< Updated upstream
-/* Combo */
->>>>>>> Stashed changes
 
 #combo
 {
@@ -220,14 +215,8 @@ img {
     cursor: pointer;
 }
 
-<<<<<<< Updated upstream
+
 /* ------- FIN DE JEU ------ */
-=======
-/* Rules */
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 #divEnd {
     position:absolute;
@@ -244,7 +233,7 @@ img {
     text-transform:uppercase;
 }
 
-<<<<<<< Updated upstream
+
 .divEnd {
 	display: none;
 }
@@ -255,27 +244,8 @@ img {
 	color: #FFFFFF;
 	letter-spacing: 0em;
 	margin-top: 2em;
-=======
-#rules_first {
-    margin-top:80px;
 }
 
-#textee {
-    width: 900px;
-    margin:auto;
-    border:1px solid green;
-}
-
-#rules_first, #rules_two, #rules_three, #rules_three_bis, #rules_four {
-    height:300px;
-}
-
-#liberte, #chaine, #chaine_prise {
-    float:left;
-    margin-right:20px;
-    margin-left:130px;
->>>>>>> Stashed changes
-}
 
 #winner{
 	font-size: 2em;
@@ -301,12 +271,6 @@ img {
     font-weight:300;
     font-size:20px;
 	top:50px;
-
-<<<<<<< Updated upstream
-=======
-#rules_first > p {
-    text-align:left!important;
->>>>>>> Stashed changes
 }
 
 #facebook{
@@ -372,8 +336,6 @@ h3{
     margin-top: 2em;
 }
 
-<<<<<<< Updated upstream
-
 #orange{
     color: #EC6945;
 }
@@ -433,70 +395,3 @@ h3{
     text-align: center;
     margin-top: 6em;
 }
-=======
-#rules_four > p {
-    text-align:left;
-<<<<<<< Updated upstream
-=======
-
-=======
-/* Combo */
-
-#combo 
-{
-    position:absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    -webkit-touch-callout: none;
-    -webkit-text-size-adjust: none;
-    -webkit-user-select: none;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-attachment:fixed;
-    margin-top:45.1em;
-    padding:0px;
-    text-transform:uppercase;
-}
-
-#combo h1
-{
-    font-family: 'LeviReBrushed';
-    font-size: 8em;
-    color: #FFFFFF;
-    letter-spacing: 0em;
-    margin-top: 2em;
-}
-
-#combo
-{
-    display: none;
-}
-
-#comboDescr
-{
-    font-size: 2em;
-    margin-top: 0em;
-    font-weight: 700;
-    opacity: 1;
-    color: #FF5E00;
-}
-
-.close
-{
-    border: 2px solid #4099FF;
-    background-color:#4099FF;
-    color:white;
-    width:150px;
-    height:40px;
-    font-family: 'Lato', sans-serif;
-    font-weight:300;
-    font-size:20px;
-    top:50px;
-    display: block;
-    margin: 3% auto auto;
-    cursor: pointer;
->>>>>>> origin/master
->>>>>>> Stashed changes
-}
->>>>>>> Stashed changes
