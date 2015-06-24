@@ -86,6 +86,16 @@ for(var x=0; x<9; x++)
 console.log("Tableau tours");
 console.log(takes);
 
+//Tableau qui stocke les possibilité de l'Ia
+var tabIa = new Array();
+for(var x=0; x<9; x++)
+   tab[x] = new Array();
+for(var x=0; x<9; x++)
+   for(var y=0; y<9; y++)
+      tab[x][y] = 0;
+console.log("Tableau Ia :")
+console.log(tab);
+
 function activateIa()
 {
     iaMode = true;
@@ -129,18 +139,22 @@ function capture()
     if ( (y-1)>=0 && tab[x][y-1]==nextPlayer)
     {
         libertiesGroup(x, y-1);
+        LibertiesGroupIa(x, y-1);
     }
     if ((x+1)<row && tab[x+1][y]==nextPlayer)
     {
         libertiesGroup(x+1, y);
+        LibertiesGroupIa(x+1, y);
     }
     if ((y+1)<row && tab[x][y+1]==nextPlayer)
     {
         libertiesGroup(x, y+1);
+        libertiesGroupIa(x, y+1);
     }
     if ((x-1)>=0 && tab[x-1][y]==nextPlayer)
     {
         libertiesGroup(x-1, y);
+        libertiesGroupIa(x-1, y);
     }
 }
 
@@ -477,6 +491,7 @@ function endGame()
     document.getElementById("divEnd").style.display = "block";
 }
 
+<<<<<<< Updated upstream
 function ia()
 {
     if (round<8)
@@ -526,5 +541,62 @@ function ia()
         combo();
         maj();
         playerTurn();
+=======
+var temp = 0;
+
+function LibertiesGroupIa (x,y) {
+    detectGroup();
+    var groupeNum = groups[x][y];
+    for (var i=0; i<row; i++)
+    {
+        for (var j=0; j<row; j++)
+        {
+            if (groups[i][j]==groupeNum && groupeNum!=0)
+            {
+                if ( ((j-1)>=0 && tab[i][j-1]==0)  || ((i+1)<row && tab[i+1][j]==0) || ((j+1)<row && tab[i][j+1]==0) || ((i-1)>=0 && tab[i-1][j]==0) )
+                {
+                    return;
+                    // Si un pion du groupe à une libertés, il n'y a pas capture
+                }
+            }
+        }
+    }
+
+
+    // Si on arrive la, c'est que le groupe n'avait aucune libertés
+    for (var i=0; i<row; i++)
+    {
+        for (var j=0; j<row; j++)
+        {
+            if (groups[i][j]==groupeNum)
+            {
+                temp++;
+            }
+        }
+    }
+}
+
+function Bagdad()
+{
+    for (var x=0; x<row; x++)
+    {
+        for (var y=0; y<row; y++)
+        {
+            if (tab[x][y]==0 && (tab[x-1][y]==1 || tab[x][y-1]==1 || tab[x+1][y]==1 || tab[x][y+1])) {
+                capture();
+                tabIa[x][y]=temp;
+            }
+        }
+    }
+    for (var x=0; x<row; x++)
+    {
+        for (var y=0; y<row; y++)
+        {
+            var manger=0;
+            if (temp>manger) {
+                var manger = temp;
+            };
+        }
+>>>>>>> Stashed changes
     }
 }
