@@ -30,9 +30,6 @@ for (var i = boardSize; i > 0; i--)
   	}
 }
 
-row = 9;
-column = 9;
-
 //Functions to identify the intersections, add powns etc.
 
 var iaMode = false;
@@ -86,11 +83,26 @@ for(var x=0; x<9; x++)
 console.log("Tableau tours");
 console.log(takes);
 
-function activateIa()
+
+// Tableau des noms de robots aléatoire
+var iaNames = new Array ("R2-D2", "Wall-E", "Bender","Hal 9000", "GLaDOS", "Mr. Roboto", "HK-47", "Sonny", "Smith", "Skynet", "C-3PO", "T-800", "T-1000", "ENIAC", "K2000", "Rick Deckard", "Ash");
+console.log(iaNames);
+var temp = Math.floor((Math.random() * 16) + 1);
+console.log(temp);
+var name = iaNames[temp];
+console.log(name);
+
+var element = document.getElementById("p2").innerHTML;
+console.log(element);
+if (element=="Bot")
 {
+    var element = document.getElementById("p2");
+    element.innerHTML = name;
     iaMode = true;
     console.log("ia ON");
 }
+
+   
 
 function basic(id) {
     var x_y = id.indexOf("_");
@@ -120,6 +132,7 @@ function basic(id) {
     if (iaMode==true)
     {
         ia();
+        console.log("ia working");
     }
 }
 
@@ -378,7 +391,7 @@ function playerTurn ()
 function combo ()
 {
     console.log("combo");
-    if (nbCombo >= 2)
+    if (nbCombo >= 3)
     {
         if (nbCombo >=3 && nbCombo<=4)
         {
@@ -444,13 +457,13 @@ function timer()
     if (sec==0 && min==0)
     {
         endGame();
+        // sec="--";
+        // min="--";
     }
 }
 
 window.setInterval(function(){
-
-  timer();
-
+        timer();
 }, 1000);
 
 function endGame()
@@ -485,6 +498,8 @@ function ia()
         {
             var tempX = Math.floor((Math.random() * 8) + 4);
             var tempY = Math.floor((Math.random() * 8) + 4);
+            console.log(tempX);
+            console.log(tempY);
             x=tempX;
             y=tempY;            
         }
@@ -492,6 +507,8 @@ function ia()
         {
             var tempX = Math.floor((Math.random() * 8) + 4);
             var tempY = Math.floor((Math.random() * 8) + 4);
+            console.log(tempX);
+            console.log(tempY);
             x=tempX;
             y=tempY;     
         }
@@ -499,6 +516,8 @@ function ia()
         {
             var tempX = Math.floor((Math.random() * 8) + 4);
             var tempY = Math.floor((Math.random() * 8) + 4);
+            console.log(tempX);
+            console.log(tempY);
             x=tempX;
             y=tempY;     
         }
@@ -506,6 +525,8 @@ function ia()
         {
             var tempX = Math.floor((Math.random() * 8) + 4);
             var tempY = Math.floor((Math.random() * 8) + 4);
+            console.log(tempX);
+            console.log(tempY);
             x=tempX;
             y=tempY;     
         }
@@ -528,3 +549,4 @@ function ia()
         playerTurn();
     }
 }
+
