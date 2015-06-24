@@ -83,20 +83,25 @@ for(var x=0; x<9; x++)
 console.log("Tableau tours");
 console.log(takes);
 
-<<<<<<< HEAD
 
 // Tableau des noms de robots aléatoire
-var iaNames = new Array ("R2-D2", "Wall-E", "Bender","Hal 9000", "GLaDOS", "Mr. Roboto", "HK-47", "Sonny", "Smith", "Skynet", "C-3PO", "T-800", "T-1000", "ENIAC", "K2000", "Rick Deckard", "Ash");
-console.log(iaNames);
-var temp = Math.floor((Math.random() * 16) + 1);
-console.log(temp);
-var name = iaNames[temp];
-console.log(name);
-
 var element = document.getElementById("p2").innerHTML;
 console.log(element);
 if (element=="Bot")
-=======
+{
+    var iaNames = new Array ("R2-D2", "Wall-E", "Bender","Hal 9000", "GLaDOS", "Mr. Roboto", "HK-47", "Sonny", "Smith", "Skynet", "C-3PO", "T-800", "T-1000", "ENIAC", "K2000", "Rick Deckard", "Ash");
+    console.log(iaNames);
+    var temp = Math.floor((Math.random() * 16) + 1);
+    console.log(temp);
+    var name = iaNames[temp];
+    console.log(name);
+    var element = document.getElementById("p2");
+    element.innerHTML = name;
+    iaMode = true;
+    console.log("ia ON");
+}
+
+
 //Tableau qui stocke les possibilité de l'Ia
 var tabIa = new Array();
 for(var x=0; x<9; x++)
@@ -107,16 +112,7 @@ for(var x=0; x<9; x++)
 console.log("Tableau Ia :")
 console.log(tab);
 
-function activateIa()
->>>>>>> origin/master
-{
-    var element = document.getElementById("p2");
-    element.innerHTML = name;
-    iaMode = true;
-    console.log("ia ON");
-}
 
-   
 
 function basic(id) {
     var x_y = id.indexOf("_");
@@ -156,22 +152,22 @@ function capture()
     if ( (y-1)>=0 && tab[x][y-1]==nextPlayer)
     {
         libertiesGroup(x, y-1);
-        LibertiesGroupIa(x, y-1);
+        //LibertiesGroupIa(x, y-1);
     }
     if ((x+1)<row && tab[x+1][y]==nextPlayer)
     {
         libertiesGroup(x+1, y);
-        LibertiesGroupIa(x+1, y);
+        //LibertiesGroupIa(x+1, y);
     }
     if ((y+1)<row && tab[x][y+1]==nextPlayer)
     {
         libertiesGroup(x, y+1);
-        libertiesGroupIa(x, y+1);
+        //libertiesGroupIa(x, y+1);
     }
     if ((x-1)>=0 && tab[x-1][y]==nextPlayer)
     {
         libertiesGroup(x-1, y);
-        libertiesGroupIa(x-1, y);
+        //libertiesGroupIa(x-1, y);
     }
 }
 
@@ -508,7 +504,6 @@ function endGame()
     document.getElementById("divEnd").style.display = "block";
 }
 
-<<<<<<< Updated upstream
 function ia()
 {
     if (round<8)
@@ -566,8 +561,12 @@ function ia()
         combo();
         maj();
         playerTurn();
-=======
-var temp = 0;
+    }
+}
+
+
+/*var temp = 0;
+
 
 function LibertiesGroupIa (x,y) {
     detectGroup();
@@ -622,7 +621,7 @@ function Bagdad()
                 var manger = temp;
             };
         }
->>>>>>> Stashed changes
     }
 }
 
+*/
