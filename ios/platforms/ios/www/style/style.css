@@ -215,6 +215,7 @@ img {
     cursor: pointer;
 }
 
+
 /* ------- FIN DE JEU ------ */
 
 #divEnd {
@@ -232,6 +233,7 @@ img {
     text-transform:uppercase;
 }
 
+
 .divEnd {
 	display: none;
 }
@@ -243,6 +245,7 @@ img {
 	letter-spacing: 0em;
 	margin-top: 2em;
 }
+
 
 #winner{
 	font-size: 2em;
@@ -268,7 +271,6 @@ img {
     font-weight:300;
     font-size:20px;
 	top:50px;
-
 }
 
 #facebook{
@@ -333,7 +335,6 @@ h3{
     text-align: center;
     margin-top: 2em;
 }
-
 
 #orange{
     color: #EC6945;
