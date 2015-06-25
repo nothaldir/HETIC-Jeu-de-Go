@@ -51,7 +51,7 @@ h1{
     margin-top: 1em;
 }
 
-img {
+img{
     display: block;
     margin: auto;
     height: 11em;
@@ -73,15 +73,13 @@ img {
     display: inline-block;
 }
 
-#goban_back /* Image */
-{
+#goban_back{
     height: 30em;
     margin: auto;
     margin-top: 3em;
 }
 
-#goban_front /* Invisible Goban */
-{
+#goban_front{
     height: 33.7em;
     width: 33.7em;
     margin: auto;
@@ -91,32 +89,28 @@ img {
     right: 0.25em;
 }
 
-.front /* Case of Goban */
-{
+.front{
     width: 3.74em;
     height: 3.74em;
     float: left;
     cursor: pointer;
 }
 
-.player1
-{
+.player1{
     width: 2em;
     height: 2em;
     border-radius: 50%;
     background-color: #e3e3e3;
 }
 
-.player2
-{
+.player2{
     width: 2em;
     height: 2em;
     border-radius: 50%;
     background-color: #ec424e;
 }
 
-.player1, .player2
-{
+.player1, .player2{
     margin-top: 1em;
 }
 
@@ -130,13 +124,11 @@ img {
     vertical-align: top;
 }
 
-.scorep1
-{
+.scorep1{
     margin-left: 3%;
 }
 
-.scorep2
-{
+.scorep2{
     margin-right: 3%;
 }
 
@@ -160,8 +152,7 @@ img {
 
 /* ------- COMBO ------ */
 
-#combo
-{
+#combo{
     position:absolute;
     top:0;
     left:0;
@@ -176,8 +167,7 @@ img {
     text-transform:uppercase;
 }
 
-#combo h1
-{
+#combo h1{
     font-family: 'LeviReBrushed';
     font-size: 7em;
     color: #FFFFFF;
@@ -185,40 +175,40 @@ img {
     margin-top: 2.5em;
 }
 
-#combo
-{
+#combo p{
+    font-family: 'Lato';
+    font-weight: 700;
+	color: #FF5E00;
+	opacity: 0.8;
+	font-size: 1.2em;
+    text-align: center;
+}
+
+#combo{
     display: none;
 }
 
-#comboDescr
-{
-    font-size: 1.2em;
-    margin-top: 0em;
-    font-weight: 700;
-    opacity: 1;
-    color: #FF5E00;
-}
-
-.close
-{
-    border: 2px solid #4099FF;
-    background-color:#4099FF;
-    color:white;
-    width:150px;
-    height:40px;
-    font-family: 'Lato', sans-serif;
-    font-weight:300;
-    font-size:20px;
-    top:50px;
+.close{
+    background: #EC6945;
+    border-radius: 40px;
+    border: none;
+    margin: auto;
     display: block;
-    margin: 3% auto auto;
-    cursor: pointer;
+    padding:19px 40px 19px 40px;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 1em;
+    color: #FFFFFF;
+    opacity: 1;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin-top: 3em;
 }
 
 
 /* ------- FIN DE JEU ------ */
 
-#divEnd {
+#divEnd{
     position:absolute;
     top:0;
     left:0;
@@ -234,7 +224,7 @@ img {
 }
 
 
-.divEnd {
+.divEnd{
 	display: none;
 }
 
@@ -249,6 +239,8 @@ img {
 
 #winner{
 	font-size: 2em;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
 	margin-top: 0em;
 	font-weight: 700;
 	opacity: 1;
@@ -256,34 +248,52 @@ img {
 }
 
 .social{
-	width:310px;
+	width:351px;
 	margin:auto;
 	margin-top:3em;
 }
 
 #twitter{
-	border: 2px solid #4099FF;
-    background-color:#4099FF;
+    background: #4099FF;
+    border-radius: 40px;
+    border: none;
     color:white;
-    width:150px;
-    height:40px;
+    padding:13px 45px 13px 45px;
     font-family: 'Lato', sans-serif;
     font-weight:300;
     font-size:20px;
 	top:50px;
+    text-align: center;
 }
 
 #facebook{
-
-	border: 2px solid #3D62B3;
-    background-color:#3D62B3;
+    background: #3D62B3;
+    border-radius: 40px;
+    border: none;
     color:white;
-    width:150px;
-    height:40px;
+    padding:13px 45px 13px 45px;
     font-family: 'Lato', sans-serif;
     font-weight:300;
     font-size:20px;
+	top:50px;
+    text-align: center;
+    margin-left: 20px;
+}
 
+#return{
+    background: #EC6945;
+    border-radius: 40px;
+    border: none;
+    margin: auto;
+    display: block;
+    padding:13px 147px 13px 147px;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 20px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-align: center;
+    margin-top: 1em;
 }
 
 /* ---------------------
@@ -430,4 +440,43 @@ h3{
     width: 7em;
     margin-left: 2em;
     margin-top: 3em;
+}
+
+/* ------- ABONNEMENT PREMIUM -------- */
+
+.beta{
+    display: none;
+}
+
+.beta h1{
+    margin-top: 6em;
+}
+
+.beta button{
+    background: #EC6945;
+    border-radius: 40px;
+    border: none;
+    margin: auto;
+    display: block;
+    padding:19px 25px 19px 25px;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 1em;
+    color: #FFFFFF;
+    opacity: 1;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin-top: 3em;
+}
+
+.beta p{
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 1em;
+    color: #FFFFFF;
+    opacity: 0.34;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin-top: 2em;
 }

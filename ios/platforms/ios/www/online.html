@@ -52,10 +52,12 @@
         function pseudosend(){
             document.getElementById('pseudo').style.display = 'none';
             document.getElementById('select').style.display = 'block';
-        }
 
-        function pseudo(){
-            var pseudo =
+            var pseudo = document.getElementById('player_pseudo').value;
+            console.log(pseudo);
+
+            var element = document.getElementById("welcome");
+            element.innerHTML = "Bonjour " + pseudo + " !";
         }
 
     </script>
@@ -63,7 +65,6 @@
     <script src="//localhost:8088/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
 
-    <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="jquery/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
