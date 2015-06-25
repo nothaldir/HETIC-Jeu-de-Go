@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoGame - Bot Player</title>
+
+    <!-- Style Perso -->
+    <link rel="stylesheet" href="style/style.css">
+
+</head>
+<body>
+
+    <audio id="sound" visibility="hidden">
+            <source src="sounds/combowhore.mp3" type="audio/mp3" />
+    </audio>
+
+    <div class="header">
+        <a href="index.html"><img id="logo" src="img/logo.png" alt="Logo GoGame"></a>
+    </div>
+
+    <div id="game">
+
+        <div id="timer">
+            <h1>05:00</h1>
+        </div>
+
+        <div class="scorep1">
+            <h1 id="scoreJ1">0</h1>
+            <p class="animated pulse infinite" id="p1">Player 1</p>
+        </div>
+
+
+        <div class="goban">
+            <img src="img/grid.png" alt="grid" id="goban_back">
+            <div id="goban_front"></div>
+        </div>
+
+        <div class="scorep2">
+            <h1 id="scoreJ2">0</h1>
+            <p id="p2">Bot</p>
+        </div>
+
+    </div>
+
+    <div class="divEnd" id="divEnd">
+        <h1 id="playerwin">player 1</h1>
+        <p id="winner">wins the game</p>
+        <section class="social">
+		    <button id="twitter" onclick="window.plugins.socialsharing.shareViaTwitter('Je suis juste un ouf au GoGame !', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10387411_10204778963131356_1987237599792565532_n.jpg?oh=8ccfa386b22ef4cee90899267fb4cf72&oe=55F39D01', 'https://www.facebook.com/gala.pillot')">Twitter</button>
+			<button id="facebook" onclick="window.plugins.socialsharing.shareViaFacebook('Je suis juste un ouf au GoGame !', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10387411_10204778963131356_1987237599792565532_n.jpg?oh=8ccfa386b22ef4cee90899267fb4cf72&oe=55F39D01', 'https://www.facebook.com/gala.pillot')">Facebook</button>
+		</section>
+	</div>
+
+    <div id="combo">
+        <h1 id="nbCombo"></h1>
+        <p id="comboDescr"></p>
+        <button class="close" onClick="off()">Close</button>
+    </div>
+
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery-migrate-1.2.1.min.js"></script>
+
+    </script>
+
+</body>
+</html>

@@ -27,7 +27,7 @@
                 <p>Jouez sur le même iPad, l'un contre l'autre</p>
             </div>
             <div class="botplayer">
-                <a href="game.html"><img src="img/botplayer.png" alt="Image du BotPlayer" onclick="iaOn();"></a>
+                <a href="bot.html"><img src="img/botplayer.png" alt="Image du BotPlayer"></a>
                 <h1>Bot Player</h1>
                 <p>Jouez contre l'iPad et essayez de gagner</p>
             </div>
@@ -49,7 +49,6 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="jquery/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
@@ -65,52 +64,52 @@
         });
         // Carousel End
 
-        function GameCenter() {
-            if(localStorage.getItem('GameCenterLoggedin')) {
-		PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
-	}
-}
-
-    GameCenter.prototype.authenticate = function() {
-        PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
-    };
-
-    GameCenter.prototype.showLeaderboard = function(category) {
-        PhoneGap.exec("GameCenterPlugin.showLeaderboard",category);
-    };
-
-    GameCenter.prototype.reportScore = function(category,score) {
-        PhoneGap.exec("GameCenterPlugin.reportScore",category,score);
-    };
-
-    GameCenter.prototype.showAchievements = function() {
-        PhoneGap.exec("GameCenterPlugin.showAchievements");
-    };
-
-    GameCenter.prototype.getAchievement = function(category) {
-    	PhoneGap.exec("GameCenterPlugin.reportAchievementIdentifier",category,100);
-    };
-
-    GameCenter._userDidLogin = function() {
-    	localStorage.setItem('GameCenterLoggedin', 'true');
-    };
-
-    GameCenter._userDidSubmitScore = function() {
-    	alert('score submitted');
-    };
-
-    GameCenter._userDidFailSubmitScore = function() {
-    	alert('score error');
-    };
-
-    PhoneGap.addConstructor(function()
-    {
-      if(!window.plugins)
-      {
-        window.plugins = {};
-      }
-        window.plugins.gamecenter = new GameCenter();
-    });
+//         function GameCenter() {
+//             if(localStorage.getItem('GameCenterLoggedin')) {
+// 		PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
+// 	}
+// }
+//
+//     GameCenter.prototype.authenticate = function() {
+//         PhoneGap.exec("GameCenterPlugin.authenticateLocalPlayer");
+//     };
+//
+//     GameCenter.prototype.showLeaderboard = function(category) {
+//         PhoneGap.exec("GameCenterPlugin.showLeaderboard",category);
+//     };
+//
+//     GameCenter.prototype.reportScore = function(category,score) {
+//         PhoneGap.exec("GameCenterPlugin.reportScore",category,score);
+//     };
+//
+//     GameCenter.prototype.showAchievements = function() {
+//         PhoneGap.exec("GameCenterPlugin.showAchievements");
+//     };
+//
+//     GameCenter.prototype.getAchievement = function(category) {
+//     	PhoneGap.exec("GameCenterPlugin.reportAchievementIdentifier",category,100);
+//     };
+//
+//     GameCenter._userDidLogin = function() {
+//     	localStorage.setItem('GameCenterLoggedin', 'true');
+//     };
+//
+//     GameCenter._userDidSubmitScore = function() {
+//     	alert('score submitted');
+//     };
+//
+//     GameCenter._userDidFailSubmitScore = function() {
+//     	alert('score error');
+//     };
+//
+//     Cordova.addConstructor(function()
+//     {
+//       if(!window.plugins)
+//       {
+//         window.plugins = {};
+//       }
+//         window.plugins.gamecenter = new GameCenter();
+//     });
 
 
   </script>

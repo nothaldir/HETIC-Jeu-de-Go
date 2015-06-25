@@ -432,6 +432,7 @@ function combo ()
     }
 }
 
+
 function off()
 {
     var element = document.getElementById("combo");
@@ -561,16 +562,13 @@ function ia()
         combo();
         maj();
         playerTurn();
-<<<<<<< Updated upstream
     }
 }
 
 
 /*var temp = 0;
 
-=======
 var temp = 0;
->>>>>>> Stashed changes
 
 function LibertiesGroupIa (x,y) {
     detectGroup();
@@ -627,8 +625,5 @@ function Bagdad()
         }
     }
 }
-<<<<<<< Updated upstream
 
 */
-=======
->>>>>>> Stashed changes

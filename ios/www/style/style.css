@@ -395,3 +395,39 @@ h3{
     text-align: center;
     margin-top: 6em;
 }
+
+/* ------- SELECTION PLAYER -------- */
+
+.selectplayer{
+    width: 80%;
+    margin: auto;
+    display: none;
+}
+
+.selectplayer h1{
+    margin-top: 2em;
+}
+
+.selectplayer p{
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 1em;
+    color: #FFFFFF;
+    opacity: 0.34;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.user{
+    margin-left: 2em;
+}
+
+.selectplayer img{
+    display: inline-block;
+    height: 7em;
+    width: 7em;
+    margin-left: 2em;
+    margin-top: 3em;
+}
