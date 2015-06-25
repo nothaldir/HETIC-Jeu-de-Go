@@ -446,6 +446,7 @@ function combo ()
     }
 }
 
+
 function off()
 {
     var element = document.getElementById("combo");
@@ -540,6 +541,13 @@ function ia()
                 console.log("new"+y);   
             }
             while (x<5 && y<5)
+            var tempX = Math.floor((Math.random() * 8) + 4);
+            var tempY = Math.floor((Math.random() * 8) + 4);
+            console.log(tempX);
+            console.log(tempY);
+            x=tempX;
+            y=tempY;
+
         }
         else if (x<=4 && y>=4)
         {
@@ -548,7 +556,7 @@ function ia()
             console.log(tempX);
             console.log(tempY);
             x=tempX;
-            y=tempY;     
+            y=tempY;
         }
         else if (x>=4 && y<=4)
         {
@@ -557,7 +565,7 @@ function ia()
             console.log(tempX);
             console.log(tempY);
             x=tempX;
-            y=tempY;     
+            y=tempY;
         }
         else if (x>=4 && y>=4)
         {
@@ -566,7 +574,7 @@ function ia()
             console.log(tempX);
             console.log(tempY);
             x=tempX;
-            y=tempY;     
+            y=tempY;
         }
     }
     */
@@ -575,6 +583,7 @@ function ia()
 
 /*var temp = 0;
 
+var temp = 0;
 
 function LibertiesGroupIa (x,y) {
     detectGroup();
@@ -634,6 +643,7 @@ function Bagdad()
 
 */
 
+
 function attack()
 {
 
@@ -648,3 +658,4 @@ function territory()
 {
 
 }
+
