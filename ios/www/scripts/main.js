@@ -515,7 +515,7 @@ function ia()
             console.log(tempX);
             console.log(tempY);
             x=tempX;
-            y=tempY;            
+            y=tempY;
         }
         else if (x<=4 && y>=4)
         {
@@ -524,7 +524,7 @@ function ia()
             console.log(tempX);
             console.log(tempY);
             x=tempX;
-            y=tempY;     
+            y=tempY;
         }
         else if (x>=4 && y<=4)
         {
@@ -533,7 +533,7 @@ function ia()
             console.log(tempX);
             console.log(tempY);
             x=tempX;
-            y=tempY;     
+            y=tempY;
         }
         else if (x>=4 && y>=4)
         {
@@ -542,7 +542,7 @@ function ia()
             console.log(tempX);
             console.log(tempY);
             x=tempX;
-            y=tempY;     
+            y=tempY;
         }
     }
 
@@ -561,12 +561,16 @@ function ia()
         combo();
         maj();
         playerTurn();
+<<<<<<< Updated upstream
     }
 }
 
 
 /*var temp = 0;
 
+=======
+var temp = 0;
+>>>>>>> Stashed changes
 
 function LibertiesGroupIa (x,y) {
     detectGroup();
@@ -623,5 +627,8 @@ function Bagdad()
         }
     }
 }
+<<<<<<< Updated upstream
 
 */
+=======
+>>>>>>> Stashed changes
