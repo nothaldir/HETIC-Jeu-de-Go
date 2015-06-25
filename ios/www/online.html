@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoGame - Online</title>
+
+    <!-- Style Perso -->
+    <link rel="stylesheet" href="style/style.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="style/animate.css">
+
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html"><img id="logo" src="img/logo.png" alt="Logo GoGame"></a>
+    </div>
+
+    <div id="pseudo" class="pseudo animated fadeIn">
+        <h1>Choisissez un pseudo</h1>
+        <p>Un pseudo sympa est cool pour impréssionez les joueurs</p>
+        <input type="text" name="pseudo" id="player_pseudo">
+        <button onclick="pseudosend()" type="button" name="button">Commencer</button>
+    </div>
+
+    <div id="select" class="selectplayer">
+        <h1 id="welcome" class="animated fadeIn">Bonjour Pepper !</h1>
+        <p class="animated fadeIn">Selectionner un joueur pour le deifé en ligne !</p>
+
+        <div class="user">
+            <img class="animated bounceIn" src="img/users/1.png" alt="Nans Thomas">
+            <img class="animated bounceIn" src="img/users/2.png" alt="Alex Berno">
+            <img class="animated bounceIn" src="img/users/3.png" alt="Michael Zaccardi">
+            <img class="animated bounceIn" src="img/users/4.png" alt="Camille Basset">
+            <img class="animated bounceIn" src="img/users/5.png" alt="Jerome Lenoir">
+            <img class="animated bounceIn" src="img/users/6.png" alt="Jerome Lenoir">
+            <img class="animated bounceIn" src="img/users/7.png" alt="Camille Basset">
+            <img class="animated bounceIn" src="img/users/8.png" alt="Michael Zaccardi">
+            <img class="animated bounceIn" src="img/users/9.png" alt="Alex Berno">
+            <img class="animated bounceIn" src="img/users/10.png" alt="Nans Thomas">
+            <img class="animated bounceIn" src="img/users/11.png" alt="Nans Thomas">
+            <img class="animated bounceIn" src="img/users/12.png" alt="Alex Berno">
+            <img class="animated bounceIn" src="img/users/13.png" alt="Michael Zaccardi">
+            <img class="animated bounceIn" src="img/users/14.png" alt="Camille Basset">
+            <img class="animated bounceIn" src="img/users/15.png" alt="Jerome Lenoir">
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+        function pseudosend(){
+            document.getElementById('pseudo').style.display = 'none';
+            document.getElementById('select').style.display = 'block';
+        }
+
+    </script>
+
+    <script src="//localhost:8088/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+
+    <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+</body>
+</html>
