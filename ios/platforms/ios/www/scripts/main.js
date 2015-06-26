@@ -86,15 +86,11 @@ console.log(takes);
 
 // Tableau des noms de robots aléatoire
 var element = document.getElementById("p2").innerHTML;
-console.log(element);
 if (element=="Bot")
 {
     var iaNames = new Array ("R2-D2", "Wall-E", "Bender","Hal 9000", "GLaDOS", "Mr. Roboto", "HK-47", "Sonny", "Smith", "Skynet", "C-3PO", "T-800", "T-1000", "ENIAC", "K2000", "Rick Deckard", "Ash");
-    console.log(iaNames);
     var temp = Math.floor((Math.random() * 16) + 1);
-    console.log(temp);
     var name = iaNames[temp];
-    console.log(name);
     var element = document.getElementById("p2");
     element.innerHTML = name;
     iaMode = true;
@@ -109,9 +105,6 @@ for(var x=0; x<9; x++)
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       tab[x][y] = 0;
-console.log("Tableau Ia :")
-console.log(tab);
-
 
 
 function basic(id) {
@@ -139,10 +132,31 @@ function basic(id) {
         maj();
         playerTurn();
 	}
+
     if (iaMode==true)
     {
         ia();
         console.log("ia working");
+        nbCombo = 0;
+
+        detectGroup();
+        suicideCheck();
+
+        if (tab[x][y]!=player && tab[x][y]==0 && suicide==false && takes[x][y]!=round)
+        {
+            round++;
+            tab[x][y] = player;
+            takes[x][y] = round;
+            detectGroup();
+            capture();
+            combo();
+            maj();
+            playerTurn();
+        }
+        else
+        {
+            ia();
+        }
     }
 }
 
@@ -472,8 +486,8 @@ function timer()
     if (sec==0 && min==0)
     {
         endGame();
-        // sec="--";
-        // min="--";
+        sec="--";
+        min="--";
     }
 }
 
@@ -507,21 +521,38 @@ function endGame()
 
 function ia()
 {
-    if (round<8)
+    x = Math.floor(Math.random() * 9); 
+    y = Math.floor(Math.random() * 9); 
+    return x;
+    return y;
+    
+    /*    
+    console.log("old"+x);
+    console.log("old"+y);
+    if (round>=0)
     {
         if (x<=4 && y<=4)
         {
+            do
+            {
+                x = Math.floor((Math.random() * 4) + 5);
+                y = Math.floor((Math.random() * 4) + 5);
+                console.log("new"+x);
+                console.log("new"+y);   
+            }
+            while (x<5 && y<5)
             var tempX = Math.floor((Math.random() * 8) + 4);
             var tempY = Math.floor((Math.random() * 8) + 4);
             console.log(tempX);
             console.log(tempY);
             x=tempX;
             y=tempY;
+
         }
         else if (x<=4 && y>=4)
         {
-            var tempX = Math.floor((Math.random() * 8) + 4);
-            var tempY = Math.floor((Math.random() * 8) + 4);
+            var tempX = Math.floor((Math.random() * 4) + 4);
+            var tempY = Math.floor((Math.random() * 4) + 1);
             console.log(tempX);
             console.log(tempY);
             x=tempX;
@@ -529,8 +560,8 @@ function ia()
         }
         else if (x>=4 && y<=4)
         {
-            var tempX = Math.floor((Math.random() * 8) + 4);
-            var tempY = Math.floor((Math.random() * 8) + 4);
+            var tempX = Math.floor((Math.random() * 4) + 1);
+            var tempY = Math.floor((Math.random() * 4) + 4);
             console.log(tempX);
             console.log(tempY);
             x=tempX;
@@ -538,31 +569,15 @@ function ia()
         }
         else if (x>=4 && y>=4)
         {
-            var tempX = Math.floor((Math.random() * 8) + 4);
-            var tempY = Math.floor((Math.random() * 8) + 4);
+            var tempX = Math.floor((Math.random() * 4) + 1);
+            var tempY = Math.floor((Math.random() * 4) + 1);
             console.log(tempX);
             console.log(tempY);
             x=tempX;
             y=tempY;
         }
     }
-
-    nbCombo = 0;
-
-    detectGroup();
-    suicideCheck();
-
-    if (tab[x][y]!=player && tab[x][y]==0 && suicide==false && takes[x][y]!=round)
-    {
-        round++;
-        tab[x][y] = player;
-        takes[x][y] = round;
-        detectGroup();
-        capture();
-        combo();
-        maj();
-        playerTurn();
-    }
+    */
 }
 
 
@@ -627,3 +642,20 @@ function Bagdad()
 }
 
 */
+
+
+function attack()
+{
+
+}
+
+function defense()
+{
+
+}
+
+function territory()
+{
+
+}
+
