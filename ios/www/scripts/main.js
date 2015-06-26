@@ -106,6 +106,8 @@ for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       tab[x][y] = 0;
 
+var simulation = false;
+var simule = false;
 
 function basic(id) {
     var x_y = id.indexOf("_");
@@ -123,6 +125,8 @@ function basic(id) {
 
 	if (tab[x][y]!=player && tab[x][y]==0 && suicide==false && takes[x][y]!=round)
 	{
+        simulation=false;
+        simule=false;
 		round++;
 		tab[x][y] = player;
 		takes[x][y] = round;
@@ -132,34 +136,39 @@ function basic(id) {
         maj();
         playerTurn();
 	}
-
-    if (iaMode==true)
+    if (iaMode==true && player==2)
     {
-        ia();
-        console.log("ia working");
-        nbCombo = 0;
-
-        detectGroup();
-        suicideCheck();
-
-        if (tab[x][y]!=player && tab[x][y]==0 && suicide==false && takes[x][y]!=round)
-        {
-            round++;
-            tab[x][y] = player;
-            takes[x][y] = round;
-            detectGroup();
-            capture();
-            combo();
-            maj();
-            playerTurn();
-        }
-        else
-        {
-            ia();
-        }
+        startIA();
     }
 }
 
+function startIA()
+{    
+    ia();
+    console.log("ia working");
+
+    detectGroup();
+    suicideCheck();
+
+    if (tab[x][y]!=player && tab[x][y]==0 && suicide==false && takes[x][y]!=round)
+    {
+        simulation=false;
+        simule=false;
+        round++;
+        tab[x][y] = player;
+        takes[x][y] = round;
+        detectGroup();
+        capture();
+        combo();
+        maj();
+        playerTurn();
+    }
+    else
+    {
+        startIA();
+        console.log("ia not workin...");
+    }
+}
 
 function capture()
 {
@@ -214,21 +223,31 @@ function libertiesGroup (x,y)
         {
             if (groups[i][j]==groupeNum)
             {
-                tab[i][j] = 0;
-                takes[i][j] = round;
-                if (player==1)
+                if (simulation==false)
                 {
-                    scoreJ1++;
-                    var element = document.getElementById("scoreJ1");
-                    element.innerHTML = scoreJ1;
+                    console.log("simule false");
+                    tab[i][j] = 0;
+                    takes[i][j] = round;
+                    if (player==1)
+                    {
+                        scoreJ1++;
+                        var element = document.getElementById("scoreJ1");
+                        element.innerHTML = scoreJ1;
+                    }
+                    else
+                    {
+                        scoreJ2++;
+                        var element = document.getElementById("scoreJ2");
+                        element.innerHTML = scoreJ2;
+                    }
+                    nbCombo++;
                 }
-                else
+                else if (simulation==true)
                 {
-                    scoreJ2++;
-                    var element = document.getElementById("scoreJ2");
-                    element.innerHTML = scoreJ2;
+                    simule=true;
+                    console.log("simule true");
                 }
-                nbCombo++;
+                
 
                 //prisonniersJoueur ++;
                 // Donc on remet à 0 les pions capturés du groupe et on increment la variable de
@@ -245,10 +264,23 @@ function suicideCheck() {
 
 	if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==1) && ((y-1)<=0 || tab[x][y-1]==1) && ((y+1)>=row || tab[x][y+1]==1) && ((x+1)>=row || tab[x+1][y]==1))
     {
+/*        simulation=true;
+        detectGroup();
+        capture();
+        if (simule==true)
+        {
+            suicide = false;
+            console.log("suicide = "+suicide);
+        }
+        else if (simule==false)
+        {
+            suicide = true;
+            console.log("suicide = "+suicide);
+        }*/
+
 		if ( ((x-1)<=0 || tab[x-1][y-1]==2) && ((x-2)<=0 || tab[x-2][y]==2) && ((x-1)<=0 || tab[x-1][y+1]==2) )
         {
-			suicide = false;
-			console.log("suicide = "+suicide);
+			
 		}
 		else if ( ((y-2)<=0 || tab[x][y-2]==2) && ((x-1)<=0 || tab[x-1][y-1]==2) && ((x+1)>=row || tab[x+1][y-1]==2) )
         {
@@ -265,14 +297,28 @@ function suicideCheck() {
 			suicide = false;
 			console.log("suicide = "+suicide);
 		}
-		else
-		{
-			suicide = true;
-			console.log("suicide = "+suicide);
-		}
+        else
+        {
+            suicide = true;
+            console.log("suicide = "+suicide);
+        }
+
 	}
 	else if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==2) && ((y-1)<=0 || tab[x][y-1]==2) && ((y+1)>=row || tab[x][y+1]==2) && ((x+1)>=row || tab[x+1][y]==2))
     {
+/*        simulation=true;
+        detectGroup();
+        capture();
+        if (simule==true)
+        {
+            suicide = false;
+            console.log("suicide = "+suicide);
+        }        
+        else if (simule==false)
+        {
+            suicide = true;
+            console.log("suicide = "+suicide);
+        }*/
         if ( ((x-1)<=0 || tab[x-1][y-1]==1) && ((x-2)<=0 || tab[x-2][y]==1) && ((x-1)<=0 || tab[x-1][y+1]==1) )
         {
             suicide = false;
@@ -419,7 +465,7 @@ function playerTurn ()
 function combo ()
 {
     console.log("combo");
-    if (nbCombo >= 3)
+    if (nbCombo >= 3 && iaMode==false)
     {
         if (nbCombo >=3 && nbCombo<=4)
         {
@@ -461,7 +507,7 @@ function sound()
 }
 
 var sec = 00;
-var min = 05;
+var min = 03;
 
 
 function timer()
@@ -523,8 +569,6 @@ function ia()
 {
     x = Math.floor(Math.random() * 9); 
     y = Math.floor(Math.random() * 9); 
-    return x;
-    return y;
     
     /*    
     console.log("old"+x);
@@ -644,7 +688,7 @@ function Bagdad()
 */
 
 
-function attack()
+/*function attack()
 {
 
 }
@@ -659,3 +703,4 @@ function territory()
 
 }
 
+*/
