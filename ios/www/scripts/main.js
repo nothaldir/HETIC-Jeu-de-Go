@@ -1,8 +1,10 @@
-
+/* 
+    EN - We started some functions for the AI (not random) but, as you know, we ran out of time so you might found some functions in comments.
+    FR - Nous avions commencé certains fonctions pour l'IA mais, comme vous le savez, le temps nous a manqué. C'est pourquoi vous pourriez trouver au sein du code des fonctions en commentaires.
+         Tout le reste du code est commenté en anglais.
+*/
 
 //Creating the goban with JS ==>
-
-//If you wish to change the goban size, change 9 by 13 or 19
 var boardSize=9-1;
 //Calculating the number of blocks (and divs) for a 9x9 goban
 boardSize=boardSize*boardSize;
@@ -12,11 +14,9 @@ var cells = document.getElementById('goban_back');
 var row = 0;
 var column = 0;
 
-
 //Calculating the number of intersections to place the powns
 boardSize=9*9;
 var cells = document.getElementById('goban_front');
-
 
 //Creating the intersections
 for (var i = boardSize; i > 0; i--)
@@ -30,61 +30,67 @@ for (var i = boardSize; i > 0; i--)
   	}
 }
 
+
 //Functions to identify the intersections, add powns etc.
 
+// IA mode on (true) or false(off)
 var iaMode = false;
 
+// Current round
 var round = 0;
 
+// Each player's scores
 var scoreJ1 = 0;
 var scoreJ2 = 0;
 
+// Suicide by default
 var suicide = false;
 
+// Current & Next Player
 var player = 1;
 var nextPlayer = 2;
 
-var previousJ1 = null;
-var PreviousJ2 = null;
-
+// Combo
 var nbCombo = null;
 
+// The variables for the timer are set
+var sec = 00;
+var min = 03;
 
-// Tableau de base
+// Basic table. Stores wich player played on which intersection
 var tab = new Array();
 for(var x=0; x<9; x++)
    tab[x] = new Array();
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       tab[x][y] = 0;
-console.log("Tableau de base :")
+console.log("Basic table :")
 console.log(tab);
 
 
-
-//Tableau groupes
+//Groups table. Stores a unique ID for each group detected
 var groups = new Array();
 for(var x=0; x<9; x++)
    groups[x] = new Array();
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       groups[x][y] = 0;
-console.log("tableau des groupes")
+console.log("Groups table :")
 console.log(groups);
 
 
-// Stock à quel tour un pion a été mangé
+// Takes table. Stores on which round was a stone taken. Used for the KO.
 var takes = new Array();
 for(var x=0; x<9; x++)
    takes[x] = new Array();
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       takes[x][y] = null;
-console.log("Tableau tours");
+console.log("Rounds table");
 console.log(takes);
 
 
-// Tableau des noms de robots aléatoire
+// AI names table. Pick a random name for the AI based on famous robots or AI
 var element = document.getElementById("p2").innerHTML;
 if (element=="Bot")
 {
@@ -98,31 +104,41 @@ if (element=="Bot")
 }
 
 
-//Tableau qui stocke les possibilité de l'Ia
+/* AI table. Unused.
 var tabIa = new Array();
 for(var x=0; x<9; x++)
    tab[x] = new Array();
 for(var x=0; x<9; x++)
    for(var y=0; y<9; y++)
       tab[x][y] = 0;
+*/
 
+/* Another method to check if there is a suicide was to simulate if a capture was possible. Unused
 var simulation = false;
 var simule = false;
+*/
 
+
+// Basic function that triggers on click
 function basic(id) {
+    // Retrieve the X_Y ID of the div, and seperate if into two variables.
     var x_y = id.indexOf("_");
     x = parseInt(id.substring(0, x_y));
+    console.log("--------------");
     console.log("x="+x);
     y = parseInt(id.substring(x_y + 1));
     console.log("y="+y);
     console.log("player : " + player);
     console.log("--------------");
 
+    // Reset the combo
     nbCombo = 0;
 
+    // Update de groups and check the suicide
     detectGroup();
     suicideCheck();
 
+    // Executions of all the functions
 	if (tab[x][y]!=player && tab[x][y]==0 && suicide==false && takes[x][y]!=round)
 	{
         simulation=false;
@@ -136,12 +152,14 @@ function basic(id) {
         maj();
         playerTurn();
 	}
+    // That way, the AI plays right after player 1 
     if (iaMode==true && player==2)
     {
         startIA();
     }
 }
 
+// Function to start the AI behavior
 function startIA()
 {    
     ia();
@@ -170,6 +188,7 @@ function startIA()
     }
 }
 
+// Inatialize libertiesGroup depending on the stone that is about to get taken
 function capture()
 {
     if ( (y-1)>=0 && tab[x][y-1]==nextPlayer)
@@ -194,8 +213,7 @@ function capture()
     }
 }
 
-
-
+// This function analizes each stone of a given group and check if there is any liberty.
 function libertiesGroup (x,y)
 {
     detectGroup();
@@ -209,22 +227,18 @@ function libertiesGroup (x,y)
                 if ( ((j-1)>=0 && tab[i][j-1]==0)  || ((i+1)<row && tab[i+1][j]==0) || ((j+1)<row && tab[i][j+1]==0) || ((i-1)>=0 && tab[i-1][j]==0) )
                 {
                     return;
-                    // Si un pion du groupe à une libertés, il n'y a pas capture
                 }
             }
         }
     }
 
-
-    // Si on arrive la, c'est que le groupe n'avait aucune libertés
+    // If the function get there, then there is no liberty and all the stones that are about to be taken will be updated in the basic table.
     for (var i=0; i<row; i++)
     {
         for (var j=0; j<row; j++)
         {
             if (groups[i][j]==groupeNum)
             {
-                if (simulation==false)
-                {
                     console.log("simule false");
                     tab[i][j] = 0;
                     takes[i][j] = round;
@@ -241,30 +255,18 @@ function libertiesGroup (x,y)
                         element.innerHTML = scoreJ2;
                     }
                     nbCombo++;
-                }
-                else if (simulation==true)
-                {
-                    simule=true;
-                    console.log("simule true");
-                }
-                
-
-                //prisonniersJoueur ++;
-                // Donc on remet à 0 les pions capturés du groupe et on increment la variable de
             }
         }
     }
 }
 
 
-
-
-// Function suicide (interdit au joueur de poser son pion sur une case vide si celle ci est entourée par 4 pions de même famille)
+// Check if there is a suicide and if the player could "play" the suicide ta take a stone
 function suicideCheck() {
 
 	if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==1) && ((y-1)<=0 || tab[x][y-1]==1) && ((y+1)>=row || tab[x][y+1]==1) && ((x+1)>=row || tab[x+1][y]==1))
     {
-/*        simulation=true;
+/*      simulation=true;
         detectGroup();
         capture();
         if (simule==true)
@@ -276,7 +278,8 @@ function suicideCheck() {
         {
             suicide = true;
             console.log("suicide = "+suicide);
-        }*/
+        }
+*/
 
 		if ( ((x-1)<=0 || tab[x-1][y-1]==2) && ((x-2)<=0 || tab[x-2][y]==2) && ((x-1)<=0 || tab[x-1][y+1]==2) )
         {
@@ -306,7 +309,7 @@ function suicideCheck() {
 	}
 	else if ( (tab[x][y]==0) && ((x-1)<=0 || tab[x-1][y]==2) && ((y-1)<=0 || tab[x][y-1]==2) && ((y+1)>=row || tab[x][y+1]==2) && ((x+1)>=row || tab[x+1][y]==2))
     {
-/*        simulation=true;
+/*      simulation=true;
         detectGroup();
         capture();
         if (simule==true)
@@ -318,7 +321,8 @@ function suicideCheck() {
         {
             suicide = true;
             console.log("suicide = "+suicide);
-        }*/
+        }
+*/
         if ( ((x-1)<=0 || tab[x-1][y-1]==1) && ((x-2)<=0 || tab[x-2][y]==1) && ((x-1)<=0 || tab[x-1][y+1]==1) )
         {
             suicide = false;
@@ -352,13 +356,12 @@ function suicideCheck() {
 	}
 }
 
-
+// This function detects all the groups
 function detectGroup() {
     var group_id = 1;
     for (var x=0; x < row; x++) {
         for (var y=0; y < row; y++) {
             if (tab[x][y] == 0) {
-                // si ya rien bah ya rien
                 groups[x][y] = 0;
             }
             else {
@@ -369,7 +372,6 @@ function detectGroup() {
     }
     for (x = 0; x < row; x++) {
         for (y = 0; y < row; y++) {
-            // Left
             if ((y - 1) >= 0 && tab[x][y] == tab[x][y - 1]) {
                 var former_group = groups[x][y - 1];
                 for (var k = 0; k < row; k++) {
@@ -380,7 +382,6 @@ function detectGroup() {
                     }
                 }
             }
-            // Down
             if ((x + 1) > row && tab[x][y] == tab[x + 1][y]) {
                 var former_group = groups[x + 1][y];
                 for (k = 0; k < row; k++) {
@@ -391,7 +392,6 @@ function detectGroup() {
                     }
                 }
             }
-            // Right
             if ((y + 1) < row && tab[x][y] == tab[x][y + 1]) {
                 var former_group = groups[x][y + 1];
                 for (var k = 0; k < row; k++) {
@@ -402,7 +402,6 @@ function detectGroup() {
                     }
                 }
             }
-            // Up
             if ((x - 1) >= 0 && tab[x][y] == tab[x - 1][y]) {
                 var former_group = groups[x - 1][y];
                 for (var k = 0; k < row; k++) {
@@ -417,6 +416,7 @@ function detectGroup() {
     }
 }
 
+// This function update the HTML with the datas of the basic table.
 function maj() {
     for (var i = 0; i < row; i++) {
         for (var j = 0; j < row; j++) {
@@ -439,6 +439,7 @@ function maj() {
     }
 }
 
+// This function set the current and next player 
 function playerTurn ()
 {
     if (player == 1)
@@ -461,7 +462,7 @@ function playerTurn ()
     }
 }
 
-
+// This function displays the combos
 function combo ()
 {
     console.log("combo");
@@ -492,7 +493,7 @@ function combo ()
     }
 }
 
-
+// Used to close the combo pop-up
 function off()
 {
     var element = document.getElementById("combo");
@@ -501,15 +502,13 @@ function off()
     console.log("close");
 }
 
+// Activate the combo sound effet. Only avaible on a desktop web browser.
 function sound()
 {
   document.getElementById("sound").play();
 }
 
-var sec = 00;
-var min = 03;
-
-
+// Timer function
 function timer()
 {
     if (sec==00)
@@ -537,22 +536,27 @@ function timer()
     }
 }
 
+// Every second, refresh the timer to remove 1 second
 window.setInterval(function(){
         timer();
 }, 1000);
 
+// Set the endgame screen depending on who won the game
 function endGame()
 {
+    // if player 1 wins
     if (scoreJ1 > scoreJ2)
     {
         var element = document.getElementById("playerwin");
         element.innerHTML = "Player 1";
     }
+    // if player 2 wins
     else if (scoreJ2 > scoreJ1)
     {
         var element = document.getElementById("playerwin");
         element.innerHTML = "Player 2";
     }
+    // if it's a draw
     else if (scoreJ1 == scoreJ2)
     {
         var element = document.getElementById("playerwin");
@@ -565,14 +569,13 @@ function endGame()
     document.getElementById("divEnd").style.display = "block";
 }
 
+// AI main fcuntion,  pick randomly x and y
 function ia()
 {
     x = Math.floor(Math.random() * 9); 
     y = Math.floor(Math.random() * 9); 
     
-    /*    
-    console.log("old"+x);
-    console.log("old"+y);
+    /* Function to put a stone on the opposite side of the one player 1 just played
     if (round>=0)
     {
         if (x<=4 && y<=4)
@@ -625,7 +628,7 @@ function ia()
 }
 
 
-/*var temp = 0;
+/* Some works on a developped AI. Unused.
 
 var temp = 0;
 
@@ -684,23 +687,4 @@ function Bagdad()
         }
     }
 }
-
-*/
-
-
-/*function attack()
-{
-
-}
-
-function defense()
-{
-
-}
-
-function territory()
-{
-
-}
-
 */
