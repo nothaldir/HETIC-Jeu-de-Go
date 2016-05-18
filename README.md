@@ -1,3 +1,4 @@
+*Projet scolaire pour HETIC*
 # GoGame Remastered
 Accès à la version web du jeu : http://alex-berneau.com/hetic/Jeu_de_Go/
 
