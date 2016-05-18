@@ -1,5 +1,16 @@
-# Jeu-de-Go
-Jeu de Go sur Goban 9x9
-Hetic Project - Game of Go on iPad
+# GoGame Remastered
+Accès au jeu : http://alex-berneau.com/hetic/Jeu_de_Go/
 
-Team : Alex, Nans, Gala & Pierre
+## Objectifs :
+- Réaliser un jeu de Go en utilisant JavaScript
+- Développer un mode versus 
+- Bonus : développer une I.A
+
+## Rôle : 
+Pour ce projet ambitieux, j'ai réalisé l'intégration ainsi que la conception du jeu.
+
+## Notes :
+Le jeu fut pensé et développé pour iPad grâce à Apache Cordova. Il est donc possible que certains bugs graphiques apparaissent sur la version web.
+
+## Team :
+Alex, Nans, Gala & Pierre
