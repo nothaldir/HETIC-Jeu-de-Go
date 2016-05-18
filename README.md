@@ -1,5 +1,5 @@
 # GoGame Remastered
-Accès au jeu : http://alex-berneau.com/hetic/Jeu_de_Go/
+Accès à la version web du jeu : http://alex-berneau.com/hetic/Jeu_de_Go/
 
 
 ## Objectifs :
