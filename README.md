@@ -1,4 +1,4 @@
-*Projet scolaire pour @HETIC*
+*Projet scolaire pour @HETIC réalisé en 2015*
 # GoGame Remastered
 Accès à la version web du jeu : http://alex-berneau.com/hetic/H1/Jeu_de_Go/
 
